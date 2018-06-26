@@ -1,0 +1,54 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://testing.openguilds.com/api/guild/2/batches
+    body:
+      encoding: UTF-8
+      string: '{"batch":{"data":[{"audio_url":null}]}}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Basic YTRiMjVmNjBkYjRjN2M5OTk5YWQ0MmNjYzVkNzY3ZDI6
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Tue, 26 Jun 2018 21:07:07 GMT
+      Connection:
+      - keep-alive
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding
+      Etag:
+      - W/"bb2c05ad62575e265923d3389d15f5ad"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 18852c5a-ca78-4c31-8fcb-f9cf8a2ac04d
+      X-Runtime:
+      - '2.537988'
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"44","type":"batches","relationships":{"data":{"data":[{"id":"53","type":"data"}]},"webhooks":{"data":[]}}}}'
+    http_version: 
+  recorded_at: Tue, 26 Jun 2018 21:07:08 GMT
+recorded_with: VCR 4.0.0
