@@ -2,7 +2,6 @@ require "httparty"
 require "json"
 require "openguilds/version"
 require "openguilds/errors"
-require "openguilds/openguild"
 require "openguilds/batch"
 
 module Openguilds
@@ -44,5 +43,4 @@ module Openguilds
         )
       end
   end
-
 end

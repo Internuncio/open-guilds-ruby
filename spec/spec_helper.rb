@@ -6,9 +6,9 @@ require "vcr"
 require "byebug"
 require "pry"
 require "pry-byebug"
-require 'openguilds/openguild'
 require 'openguilds/error'
 require 'openguilds/errors'
+require 'openguilds/authentication'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

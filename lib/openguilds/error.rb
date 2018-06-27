@@ -1,7 +1,5 @@
 module Openguilds
-
   class Error
-
     attr_reader :error, :status
 
     def initialize(params)

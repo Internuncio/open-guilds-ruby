@@ -1,5 +1,4 @@
 module Openguilds
-
   class Batch
     include HTTParty
 
