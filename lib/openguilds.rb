@@ -3,9 +3,10 @@ require "json"
 require "openguilds/version"
 require "openguilds/errors"
 require "openguilds/batch"
+require "openguilds/registration"
 
 module Openguilds
-  @api_base = 'https://testing.openguilds.com/api'
+  @api_base = 'http://localhost:3000/api'
 
   class << self
     attr_accessor :api_base, :api_key
