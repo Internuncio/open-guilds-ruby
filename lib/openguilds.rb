@@ -6,7 +6,7 @@ require "openguilds/batch"
 require "openguilds/registration"
 
 module Openguilds
-  @api_base = 'http://localhost:3000/api'
+  @api_base = 'https://testing.openguilds.com/api'
 
   class << self
     attr_accessor :api_base, :api_key

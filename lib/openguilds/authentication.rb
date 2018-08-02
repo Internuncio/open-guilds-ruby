@@ -17,6 +17,7 @@ module Openguilds
         }
       )
 
+      puts JSON.parse(response.body)["auth_token"]
       return {
         username: JSON.parse(response.body)["auth_token"],
         password: ""
