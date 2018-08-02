@@ -4,7 +4,6 @@ require "openguilds/version"
 require "openguilds/errors"
 require "openguilds/batch"
 require "openguilds/registration"
-require "openguilds/client"
 
 module Openguilds
   @api_base = 'http://localhost:3000/api'
