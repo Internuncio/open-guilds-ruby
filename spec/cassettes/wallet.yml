@@ -1,0 +1,54 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://testing.openguilds.com/api/wallet/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Basic ZGNhOTY2MDllOGIwOTc5YjBiNGY0ZTM0NGUzZmIzNmI6
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Thu, 02 Aug 2018 21:22:27 GMT
+      Connection:
+      - keep-alive
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding
+      Etag:
+      - W/"dd6c06729cdae5bc975fc55c7337b786"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - d88fa5bf-280e-415f-8f78-b3eb433c90dd
+      X-Runtime:
+      - '0.027565'
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"object":"Wallet","id":4,"balance":"$100.00","transactions":[{"object":"Transaction","id":5,"type":"Credit","amount":"$100.00","source":{"object":"User","id":4,"email":"s@s.com"}}]}'
+    http_version: 
+  recorded_at: Thu, 02 Aug 2018 21:22:27 GMT
+recorded_with: VCR 4.0.0
