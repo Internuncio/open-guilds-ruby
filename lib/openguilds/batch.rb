@@ -31,6 +31,18 @@ module Openguilds
         return JSON.parse(response.body)
       end
 
+      #Note: api DELETE, is not available now.
+      def cancel_batch(batch_id)
+        self.base_uri Openguilds.api_base
+
+        response = self.delete("/batches/3",
+          :headers => { 'Content-Type' => 'application/json' },
+          :basic_auth => auth
+        )
+
+        return JSON.parse(response.body)
+      end
+
       private
 
       def payload

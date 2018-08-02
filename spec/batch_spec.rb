@@ -28,10 +28,18 @@ RSpec.describe Openguilds::Batch do
   end
 
   describe "GET .get_batch" do
-    it 'should return a bathe from OpenGuilds' do
+    it 'should return a batch from OpenGuilds' do
       batch = described_class.get_batch(3)
 
       expect(batch["status"]).to eq("Unpaid")
+    end
+  end
+
+  describe "DELETE .cancel_batch" do
+    it "should cancel the batch" do
+      batch = described_class.cancel_batch(3)
+
+      expect(batch["canceled"]).to eq true
     end
   end
 
