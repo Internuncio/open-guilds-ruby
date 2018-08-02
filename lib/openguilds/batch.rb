@@ -43,6 +43,18 @@ module Openguilds
         return JSON.parse(response.body)
       end
 
+      def pay_for_a_batch(batch_id)
+        self.base_uri Openguilds.api_base
+
+        response = self.post(
+          "/batches/#{batch_id}/debits/",
+          :headers => { 'Content-Type' => 'application/json' },
+          :basic_auth => auth
+        )
+
+        return response
+      end
+
       private
 
       def payload

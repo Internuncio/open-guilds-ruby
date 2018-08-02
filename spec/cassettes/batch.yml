@@ -49,7 +49,7 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"object":"Batch","id":3,"fraction_completed":"0/1","completed":false,"status":"Unpaid"}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 02 Aug 2018 20:41:08 GMT
 - request:
     method: delete
@@ -157,7 +157,7 @@ http_interactions:
           </div>
         </body>
         </html>
-    http_version: 
+    http_version:
   recorded_at: Thu, 02 Aug 2018 20:41:08 GMT
 - request:
     method: post
@@ -208,6 +208,57 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"object":"Batch","id":5,"fraction_completed":"0/1","completed":false,"status":"Unpaid"}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 02 Aug 2018 20:41:08 GMT
+- request:
+    method: post
+    uri: https://testing.openguilds.com/api/batches/3/debits/
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Basic ZGNhOTY2MDllOGIwOTc5YjBiNGY0ZTM0NGUzZmIzNmI6
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Thu, 02 Aug 2018 21:34:18 GMT
+      Connection:
+      - keep-alive
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding
+      Etag:
+      - W/"719ba4630e19f2f5583b3830da91f420"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - b4e2e9d4-8bd4-49db-a152-3196d244306a
+      X-Runtime:
+      - '0.076296'
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"object":"Wallet","id":4,"balance":"$100.00","transactions":[{"object":"Transaction","id":5,"type":"Credit","amount":"$100.00","source":{"object":"User","id":4,"email":"s@s.com"}},{"object":"Transaction","id":6,"type":"Debit","amount":"$0.01","source":{"object":"Wallet","id":3,"debit":{"id":6,"source_object_type":"Bond","source_object_id":3,"amount_cents":1,"amount_currency":"USD","created_at":"2018-08-02T21:34:19Z","updated_at":"2018-08-02T21:34:19Z","wallet_id":4},"issued_for":{"id":4,"payload":"{\"audio_url\":null}","batch_id":3,"created_at":"2018-08-02T20:23:39Z","updated_at":"2018-08-02T21:34:19Z","parent_id":null,"status":"paid","contracts_count":0}}}]}'
+    http_version:
+  recorded_at: Thu, 02 Aug 2018 21:34:19 GMT
 recorded_with: VCR 4.0.0

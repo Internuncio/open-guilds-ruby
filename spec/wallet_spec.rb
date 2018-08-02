@@ -19,20 +19,6 @@ RSpec.describe Openguilds::Wallet do
     end
   end
 
-  describe "POST #purchase_credits" do
-    it "should return the wallet with new balance" do
-      wallet = described_class.purchase_credits(stripe_params)
-
-      expect(wallet["object"]).to eq "Wallet"
-    end
-  end
-
-  describe "POST #pay_for_a_batch" do
-    it "should return a wallet with a new balance" do
-
-    end
-  end
-
   def stripe_params
     {
       token: StripeMock.create_test_helper.generate_card_token,
