@@ -9,6 +9,7 @@ require "pry-byebug"
 require 'openguilds/error'
 require 'openguilds/errors'
 require 'openguilds/authentication'
+require 'stripe_mock'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
@@ -19,6 +20,15 @@ RSpec.configure do |config|
 
   config.expect_with :rspec do |c|
     c.syntax = :expect
+  end
+
+  config.before(:each) do
+    @stripe_test_helper = StripeMock.create_test_helper
+    StripeMock.start
+  end
+
+  config.after(:each) do
+    StripeMock.stop
   end
 end
 

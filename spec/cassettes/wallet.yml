@@ -51,4 +51,55 @@ http_interactions:
       string: '{"object":"Wallet","id":4,"balance":"$100.00","transactions":[{"object":"Transaction","id":5,"type":"Credit","amount":"$100.00","source":{"object":"User","id":4,"email":"s@s.com"}}]}'
     http_version: 
   recorded_at: Thu, 02 Aug 2018 21:22:27 GMT
+- request:
+    method: post
+    uri: https://testing.openguilds.com/api/wallet/credits/?amount=amount&email=email&token=token
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Basic ZGNhOTY2MDllOGIwOTc5YjBiNGY0ZTM0NGUzZmIzNmI6
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Thu, 02 Aug 2018 21:30:00 GMT
+      Connection:
+      - keep-alive
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding
+      Etag:
+      - W/"3150a8d17cdb8381ce9751b7368f3833"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 40c7db5a-7f19-4141-b51f-d4734d2dbf1a
+      X-Runtime:
+      - '0.886763'
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: Cannot charge a customer that has no active card
+    http_version: 
+  recorded_at: Thu, 02 Aug 2018 21:30:00 GMT
 recorded_with: VCR 4.0.0

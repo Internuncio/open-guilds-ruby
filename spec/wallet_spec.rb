@@ -11,7 +11,7 @@ RSpec.describe Openguilds::Wallet do
     VCR.eject_cassette
   end
 
-  describe "GET .get_wallet" do
+  describe "GET #get_wallet" do
     it 'should return the wallet' do
       wallet = described_class.get_wallet()
 
@@ -19,11 +19,15 @@ RSpec.describe Openguilds::Wallet do
     end
   end
 
-  describe "POST .pay_for_a_batch" do
+  describe "POST #purchase_credits" do
+    it "should return the wallet with new balance" do
+      wallet = described_class.purchase_credits(stripe_params)
 
+      expect(wallet["object"]).to eq "Wallet"
+    end
   end
 
-  describe "POST .pay_for_a_batch" do
+  describe "POST #pay_for_a_batch" do
     it "should return a wallet with a new balance" do
 
     end

@@ -6,10 +6,16 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
+    activesupport (5.2.0)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      i18n (>= 0.7, < 2)
+      minitest (~> 5.1)
+      tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     byebug (10.0.2)
     coderay (1.1.2)
+    concurrent-ruby (1.0.5)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     dante (0.2.0)
@@ -19,7 +25,10 @@ GEM
     hashdiff (0.3.7)
     httparty (0.16.2)
       multi_xml (>= 0.5.2)
+    i18n (1.0.1)
+      concurrent-ruby (~> 1.0)
     method_source (0.9.0)
+    minitest (5.11.3)
     multi_json (1.13.1)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
@@ -51,6 +60,12 @@ GEM
       dante (>= 0.2.0)
       multi_json (~> 1.0)
       stripe (>= 2.0.3)
+    stripe_event (2.1.1)
+      activesupport (>= 3.1)
+      stripe (>= 2.8, < 4.0)
+    thread_safe (0.3.6)
+    tzinfo (1.2.5)
+      thread_safe (~> 0.1)
     vcr (4.0.0)
     webmock (3.4.2)
       addressable (>= 2.3.6)
@@ -69,7 +84,9 @@ DEPENDENCIES
   pry-byebug
   rake (~> 10.0)
   rspec (~> 3.0)
+  stripe
   stripe-ruby-mock (~> 2.5.0)
+  stripe_event
   vcr
   webmock
 

@@ -11,5 +11,7 @@ group :development do
   gem 'byebug'
   gem 'pry'
   gem 'pry-byebug'
+  gem "stripe"
+  gem "stripe_event"
   gem 'stripe-ruby-mock', '~> 2.5.0', :require => 'stripe_mock'
 end
