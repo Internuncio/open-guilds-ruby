@@ -1,6 +1,95 @@
 ---
 http_interactions:
 - request:
+    method: post
+    uri: https://testing.openguilds.com/api/guild/4/batches
+    body:
+      encoding: UTF-8
+      string: 'null'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Basic ZGNhOTY2MDllOGIwOTc5YjBiNGY0ZTM0NGUzZmIzNmI6
+  response:
+    status:
+      code: 422
+      message: Unprocessable Entity
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Mon, 06 Aug 2018 03:39:45 GMT
+      Connection:
+      - keep-alive
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding
+      Cache-Control:
+      - no-cache
+      X-Request-Id:
+      - dff9dcc5-3121-4374-813d-2e3495124c7b
+      X-Runtime:
+      - '0.078986'
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"error":"Your batch was not be created. You must have at least one
+        datum in your batch."}'
+    http_version: 
+  recorded_at: Mon, 06 Aug 2018 03:39:46 GMT
+- request:
+    method: post
+    uri: https://testing.openguilds.com/api/batches/5/debits/
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Basic ZGNhOTY2MDllOGIwOTc5YjBiNGY0ZTM0NGUzZmIzNmI6
+  response:
+    status:
+      code: 500
+      message: Internal Server Error
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Mon, 06 Aug 2018 03:39:46 GMT
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=UTF-8
+      X-Request-Id:
+      - 5a800cd1-8e31-4643-ab6c-98fa22ddfc31
+      X-Runtime:
+      - '0.060490'
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      Content-Length:
+      - '46'
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"status":500,"error":"Internal Server Error"}'
+    http_version: 
+  recorded_at: Mon, 06 Aug 2018 03:39:46 GMT
+- request:
     method: get
     uri: https://testing.openguilds.com/api/batches/3
     body:
@@ -19,7 +108,7 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Thu, 02 Aug 2018 20:41:07 GMT
+      - Mon, 06 Aug 2018 03:39:47 GMT
       Connection:
       - keep-alive
       X-Frame-Options:
@@ -33,13 +122,13 @@ http_interactions:
       Vary:
       - Accept-Encoding
       Etag:
-      - W/"c8a7fae4716f02790814ba49f58c4be4"
+      - W/"7914862377878957ae8bd4a7999c3394"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 9d8f0548-0654-4aac-8be1-86fcfacc755b
+      - 4ec4160f-eb30-43e5-9cb1-8372e81fe06f
       X-Runtime:
-      - '0.018051'
+      - '0.091624'
       Strict-Transport-Security:
       - max-age=15552000; includeSubDomains
       Transfer-Encoding:
@@ -48,217 +137,7 @@ http_interactions:
       - 1.1 vegur
     body:
       encoding: UTF-8
-      string: '{"object":"Batch","id":3,"fraction_completed":"0/1","completed":false,"status":"Unpaid"}'
-    http_version:
-  recorded_at: Thu, 02 Aug 2018 20:41:08 GMT
-- request:
-    method: delete
-    uri: https://testing.openguilds.com/api/batches/3
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Content-Type:
-      - application/json
-      Authorization:
-      - Basic ZGNhOTY2MDllOGIwOTc5YjBiNGY0ZTM0NGUzZmIzNmI6
-  response:
-    status:
-      code: 404
-      message: Not Found
-    headers:
-      Server:
-      - Cowboy
-      Date:
-      - Thu, 02 Aug 2018 20:41:07 GMT
-      Connection:
-      - keep-alive
-      Content-Type:
-      - text/html; charset=UTF-8
-      X-Request-Id:
-      - 81adc842-4e09-4557-83a8-360472bdadb9
-      X-Runtime:
-      - '0.003032'
-      Strict-Transport-Security:
-      - max-age=15552000; includeSubDomains
-      Content-Length:
-      - '1799'
-      Via:
-      - 1.1 vegur
-    body:
-      encoding: UTF-8
-      string: |
-        <!DOCTYPE html>
-        <html>
-        <head>
-          <meta charset="utf-8" />
-          <meta name="ROBOTS" content="NOODP" />
-          <meta name="viewport" content="initial-scale=1" />
-          <title>The page you were looking for doesn't exist (404)</title>
-          <meta name="viewport" content="width=device-width,initial-scale=1">
-          <style>
-          .rails-default-error-page {
-            background-color: #EFEFEF;
-            color: #2E2F30;
-            text-align: center;
-            font-family: arial, sans-serif;
-            margin: 0;
-          }
-
-          .rails-default-error-page div.dialog {
-            width: 95%;
-            max-width: 33em;
-            margin: 4em auto 0;
-          }
-
-          .rails-default-error-page div.dialog > div {
-            border: 1px solid #CCC;
-            border-right-color: #999;
-            border-left-color: #999;
-            border-bottom-color: #BBB;
-            border-top: #B00100 solid 4px;
-            border-top-left-radius: 9px;
-            border-top-right-radius: 9px;
-            background-color: white;
-            padding: 7px 12% 0;
-            box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-          }
-
-          .rails-default-error-page h1 {
-            font-size: 100%;
-            color: #730E15;
-            line-height: 1.5em;
-          }
-
-          .rails-default-error-page div.dialog > p {
-            margin: 0 0 1em;
-            padding: 1em;
-            background-color: #F7F7F7;
-            border: 1px solid #CCC;
-            border-right-color: #999;
-            border-left-color: #999;
-            border-bottom-color: #999;
-            border-bottom-left-radius: 4px;
-            border-bottom-right-radius: 4px;
-            border-top-color: #DADADA;
-            color: #666;
-            box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-          }
-          </style>
-        </head>
-
-        <body class="rails-default-error-page">
-            <div class="dialog">
-            <div>
-              <h1>The page you were looking for doesn't exist.</h1>
-              <p>You may have mistyped the address or the page may have moved.</p>
-            </div>
-            <p>If you are the application owner check the logs for more information.</p>
-          </div>
-        </body>
-        </html>
-    http_version:
-  recorded_at: Thu, 02 Aug 2018 20:41:08 GMT
-- request:
-    method: post
-    uri: https://testing.openguilds.com/api/guild/4/batches
-    body:
-      encoding: UTF-8
-      string: '{"batch":{"data":[{"audio_url":null}]}}'
-    headers:
-      Content-Type:
-      - application/json
-      Authorization:
-      - Basic ZGNhOTY2MDllOGIwOTc5YjBiNGY0ZTM0NGUzZmIzNmI6
-  response:
-    status:
-      code: 201
-      message: Created
-    headers:
-      Server:
-      - Cowboy
-      Date:
-      - Thu, 02 Aug 2018 20:41:08 GMT
-      Connection:
-      - keep-alive
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Xss-Protection:
-      - 1; mode=block
-      X-Content-Type-Options:
-      - nosniff
-      Content-Type:
-      - application/json; charset=utf-8
-      Vary:
-      - Accept-Encoding
-      Etag:
-      - W/"cd5ce89e7f6a97753159a42644fcc003"
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      X-Request-Id:
-      - 2248a91e-2276-4f7c-958d-69d4c4024e6b
-      X-Runtime:
-      - '0.119310'
-      Strict-Transport-Security:
-      - max-age=15552000; includeSubDomains
-      Transfer-Encoding:
-      - chunked
-      Via:
-      - 1.1 vegur
-    body:
-      encoding: UTF-8
-      string: '{"object":"Batch","id":5,"fraction_completed":"0/1","completed":false,"status":"Unpaid"}'
-    http_version:
-  recorded_at: Thu, 02 Aug 2018 20:41:08 GMT
-- request:
-    method: post
-    uri: https://testing.openguilds.com/api/batches/3/debits/
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      Content-Type:
-      - application/json
-      Authorization:
-      - Basic ZGNhOTY2MDllOGIwOTc5YjBiNGY0ZTM0NGUzZmIzNmI6
-  response:
-    status:
-      code: 201
-      message: Created
-    headers:
-      Server:
-      - Cowboy
-      Date:
-      - Thu, 02 Aug 2018 21:34:18 GMT
-      Connection:
-      - keep-alive
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Xss-Protection:
-      - 1; mode=block
-      X-Content-Type-Options:
-      - nosniff
-      Content-Type:
-      - application/json; charset=utf-8
-      Vary:
-      - Accept-Encoding
-      Etag:
-      - W/"719ba4630e19f2f5583b3830da91f420"
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      X-Request-Id:
-      - b4e2e9d4-8bd4-49db-a152-3196d244306a
-      X-Runtime:
-      - '0.076296'
-      Strict-Transport-Security:
-      - max-age=15552000; includeSubDomains
-      Transfer-Encoding:
-      - chunked
-      Via:
-      - 1.1 vegur
-    body:
-      encoding: UTF-8
-      string: '{"object":"Wallet","id":4,"balance":"$100.00","transactions":[{"object":"Transaction","id":5,"type":"Credit","amount":"$100.00","source":{"object":"User","id":4,"email":"s@s.com"}},{"object":"Transaction","id":6,"type":"Debit","amount":"$0.01","source":{"object":"Wallet","id":3,"debit":{"id":6,"source_object_type":"Bond","source_object_id":3,"amount_cents":1,"amount_currency":"USD","created_at":"2018-08-02T21:34:19Z","updated_at":"2018-08-02T21:34:19Z","wallet_id":4},"issued_for":{"id":4,"payload":"{\"audio_url\":null}","batch_id":3,"created_at":"2018-08-02T20:23:39Z","updated_at":"2018-08-02T21:34:19Z","parent_id":null,"status":"paid","contracts_count":0}}}]}'
-    http_version:
-  recorded_at: Thu, 02 Aug 2018 21:34:19 GMT
+      string: '{"object":"Batch","id":3,"fraction_completed":"0/1","completed":false,"status":"Paid"}'
+    http_version: 
+  recorded_at: Mon, 06 Aug 2018 03:39:47 GMT
 recorded_with: VCR 4.0.0

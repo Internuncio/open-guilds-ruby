@@ -4,7 +4,6 @@ RSpec.describe Openguilds::Batch do
 
   before do
     VCR.insert_cassette 'batch', record: :new_episodes
-    Openguilds.api_key = 'dca96609e8b0979b0b4f4e344e3fb36b'
   end
 
   after do
@@ -20,7 +19,9 @@ RSpec.describe Openguilds::Batch do
   describe "POST .create" do
     it 'should return data from OpenGuilds' do
       batch = described_class.create(
-        audio_url: audio_url
+        api_key: 'dca96609e8b0979b0b4f4e344e3fb36b',
+        audio_url: audio_url,
+        guild_id: 4
       )
 
       expect(batch["status"]).to eq("Unpaid")
@@ -29,23 +30,29 @@ RSpec.describe Openguilds::Batch do
 
   describe "GET .get_batch" do
     it 'should return a batch from OpenGuilds' do
-      batch = described_class.get_batch(3)
+      batch = described_class.get_batch(
+        batch_id: 3,
+        api_key: 'dca96609e8b0979b0b4f4e344e3fb36b'
+      )
 
-      expect(batch["status"]).to eq("Unpaid")
+      expect(batch["status"]).to eq("Paid")
     end
   end
-
-  describe "DELETE .cancel_batch" do
-    it "should cancel the batch" do
-      batch = described_class.cancel_batch(3)
-
-      expect(batch["canceled"]).to eq true
-    end
-  end
-
+  #
+  # describe "DELETE .cancel_batch" do
+  #   it "should cancel the batch" do
+  #     batch = described_class.cancel_batch(3)
+  #
+  #     expect(batch["canceled"]).to eq true
+  #   end
+  # end
+  #
   describe "POST #pay_for_a_batch" do
     it "should return a wallet with a new balance" do
-      batch = described_class.pay_for_a_batch(3)
+      batch = described_class.pay_for_a_batch(
+        batch_id: 5,
+        api_key: 'dca96609e8b0979b0b4f4e344e3fb36b'
+      )
 
       expect(batch["object"]).to eq 'Wallet'
     end

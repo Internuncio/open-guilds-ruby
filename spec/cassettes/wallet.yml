@@ -19,7 +19,7 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Thu, 02 Aug 2018 21:22:27 GMT
+      - Mon, 06 Aug 2018 03:39:44 GMT
       Connection:
       - keep-alive
       X-Frame-Options:
@@ -33,13 +33,13 @@ http_interactions:
       Vary:
       - Accept-Encoding
       Etag:
-      - W/"dd6c06729cdae5bc975fc55c7337b786"
+      - W/"121cefdf76588bfd3715b6e1a2b1b371"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - d88fa5bf-280e-415f-8f78-b3eb433c90dd
+      - f65a0d59-de4d-4b5f-8a53-7c6fb832fb1e
       X-Runtime:
-      - '0.027565'
+      - '0.080940'
       Strict-Transport-Security:
       - max-age=15552000; includeSubDomains
       Transfer-Encoding:
@@ -48,58 +48,9 @@ http_interactions:
       - 1.1 vegur
     body:
       encoding: UTF-8
-      string: '{"object":"Wallet","id":4,"balance":"$100.00","transactions":[{"object":"Transaction","id":5,"type":"Credit","amount":"$100.00","source":{"object":"User","id":4,"email":"s@s.com"}}]}'
+      string: '{"object":"Wallet","id":4,"balance":"$99.73","transactions":[{"object":"Transaction","id":5,"type":"Credit","amount":"$100.00","source":{"object":"User","id":4,"email":"s@s.com"}},{"object":"Transaction","id":6,"type":"Debit","amount":"$0.01","source":{"object":"Wallet","id":3,"debit":{"id":6,"source_object_type":"Bond","source_object_id":3,"amount_cents":1,"amount_currency":"USD","created_at":"2018-08-02T21:34:19Z","updated_at":"2018-08-02T21:34:19Z","wallet_id":4},"issued_for":{"id":4,"payload":"{\"audio_url\":null}","batch_id":3,"created_at":"2018-08-02T20:23:39Z","updated_at":"2018-08-02T21:34:19Z","parent_id":null,"status":"paid","contracts_count":0}}},{"object":"Transaction","id":7,"type":"Debit","amount":"$0.01","source":{"object":"Wallet","id":4,"debit":{"id":7,"source_object_type":"Bond","source_object_id":4,"amount_cents":1,"amount_currency":"USD","created_at":"2018-08-02T23:58:48Z","updated_at":"2018-08-02T23:58:48Z","wallet_id":4},"issued_for":{"id":6,"payload":"{\"audio_url\":null}","batch_id":5,"created_at":"2018-08-02T20:41:08Z","updated_at":"2018-08-02T23:58:48Z","parent_id":null,"status":"paid","contracts_count":0}}},{"object":"Transaction","id":8,"type":"Debit","amount":"$0.25","source":{"object":"Wallet","id":5,"debit":{"id":8,"source_object_type":"Bond","source_object_id":5,"amount_cents":25,"amount_currency":"USD","created_at":"2018-08-04T00:11:30Z","updated_at":"2018-08-04T00:11:30Z","wallet_id":4},"issued_for":{"id":8,"payload":"{\"audioUrl\":
+        \"https://s3.ca-central-1.amazonaws.com/wetranscribe-development/store/voa.mp3\"
+        }","batch_id":7,"created_at":"2018-08-04T00:11:13Z","updated_at":"2018-08-04T00:11:30Z","parent_id":null,"status":"paid","contracts_count":0}}}]}'
     http_version: 
-  recorded_at: Thu, 02 Aug 2018 21:22:27 GMT
-- request:
-    method: post
-    uri: https://testing.openguilds.com/api/wallet/credits/?amount=amount&email=email&token=token
-    body:
-      encoding: UTF-8
-      string: ''
-    headers:
-      Content-Type:
-      - application/json
-      Authorization:
-      - Basic ZGNhOTY2MDllOGIwOTc5YjBiNGY0ZTM0NGUzZmIzNmI6
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Server:
-      - Cowboy
-      Date:
-      - Thu, 02 Aug 2018 21:30:00 GMT
-      Connection:
-      - keep-alive
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Xss-Protection:
-      - 1; mode=block
-      X-Content-Type-Options:
-      - nosniff
-      Content-Type:
-      - application/json; charset=utf-8
-      Vary:
-      - Accept-Encoding
-      Etag:
-      - W/"3150a8d17cdb8381ce9751b7368f3833"
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      X-Request-Id:
-      - 40c7db5a-7f19-4141-b51f-d4734d2dbf1a
-      X-Runtime:
-      - '0.886763'
-      Strict-Transport-Security:
-      - max-age=15552000; includeSubDomains
-      Transfer-Encoding:
-      - chunked
-      Via:
-      - 1.1 vegur
-    body:
-      encoding: UTF-8
-      string: Cannot charge a customer that has no active card
-    http_version: 
-  recorded_at: Thu, 02 Aug 2018 21:30:00 GMT
+  recorded_at: Mon, 06 Aug 2018 03:39:45 GMT
 recorded_with: VCR 4.0.0

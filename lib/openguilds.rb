@@ -4,17 +4,14 @@ require "openguilds/version"
 require "openguilds/errors"
 require "openguilds/batch"
 require "openguilds/registration"
+require "openguilds/authentication"
 require "openguilds/wallet"
 
 module Openguilds
   @api_base = 'https://testing.openguilds.com/api'
 
   class << self
-    attr_accessor :api_base, :api_key
-
-    def api_key
-      @api_key ||= raise Openguilds::APIKeyNotSet, "API key is not set."
-    end
+    attr_accessor :api_base
 
     def construct_from(response)
       parsed_response = response.parsed_response

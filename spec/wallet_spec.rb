@@ -4,7 +4,6 @@ RSpec.describe Openguilds::Wallet do
 
   before do
     VCR.insert_cassette 'wallet', record: :new_episodes
-    Openguilds.api_key = 'dca96609e8b0979b0b4f4e344e3fb36b'
   end
 
   after do
@@ -13,7 +12,7 @@ RSpec.describe Openguilds::Wallet do
 
   describe "GET #get_wallet" do
     it 'should return the wallet' do
-      wallet = described_class.get_wallet()
+      wallet = described_class.get_wallet(api_key: 'dca96609e8b0979b0b4f4e344e3fb36b')
 
       expect(wallet["object"]).to eq "Wallet"
     end
