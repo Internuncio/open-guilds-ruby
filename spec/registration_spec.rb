@@ -13,7 +13,7 @@ RSpec.describe Openguilds::Registration do
 
       it 'should return success message' do
         response = described_class
-          .register(email: "g@g.com",
+          .register(email: "gg@g.com",
                     password: "111111",
                     password_confirmation: "111111")
 

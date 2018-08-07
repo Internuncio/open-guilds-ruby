@@ -6,11 +6,15 @@ module Openguilds
       def create(params)
         self.base_uri Openguilds.api_base
 
-        response = self.post("/guild/#{params[:guild_id]}/batches",
-          :headers => { 'Content-Type' => 'application/json' },
-          :body => params[:data].to_json,
-          :basic_auth => auth(params[:api_key])
-        )
+        payload = Hash.new
+        payload[:batch] = params[:batch]
+
+        response = self.post("/guilds/#{params[:guild_id]}/batches",
+                             :headers => { 'Content-Type' => 'application/json',
+                                           'Accept' => 'application/json' },
+                             :body => params[:batch].to_json,
+                             :basic_auth => auth(params[:api_key])
+                            )
 
         return JSON.parse(response.body)
       end
