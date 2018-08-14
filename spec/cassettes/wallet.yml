@@ -19,7 +19,7 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Mon, 06 Aug 2018 03:39:44 GMT
+      - Fri, 10 Aug 2018 00:04:04 GMT
       Connection:
       - keep-alive
       X-Frame-Options:
@@ -33,13 +33,13 @@ http_interactions:
       Vary:
       - Accept-Encoding
       Etag:
-      - W/"121cefdf76588bfd3715b6e1a2b1b371"
+      - W/"9c1dd72367c02314a5616dfc31cceded"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - f65a0d59-de4d-4b5f-8a53-7c6fb832fb1e
+      - 95462a78-6dbb-47f5-bbee-a645975daf58
       X-Runtime:
-      - '0.080940'
+      - '0.121844'
       Strict-Transport-Security:
       - max-age=15552000; includeSubDomains
       Transfer-Encoding:
@@ -48,46 +48,7 @@ http_interactions:
       - 1.1 vegur
     body:
       encoding: UTF-8
-      string: '{"object":"Wallet","id":4,"balance":"$99.73","transactions":[{"object":"Transaction","id":5,"type":"Credit","amount":"$100.00","source":{"object":"User","id":4,"email":"s@s.com"}},{"object":"Transaction","id":6,"type":"Debit","amount":"$0.01","source":{"object":"Wallet","id":3,"debit":{"id":6,"source_object_type":"Bond","source_object_id":3,"amount_cents":1,"amount_currency":"USD","created_at":"2018-08-02T21:34:19Z","updated_at":"2018-08-02T21:34:19Z","wallet_id":4},"issued_for":{"id":4,"payload":"{\"audio_url\":null}","batch_id":3,"created_at":"2018-08-02T20:23:39Z","updated_at":"2018-08-02T21:34:19Z","parent_id":null,"status":"paid","contracts_count":0}}},{"object":"Transaction","id":7,"type":"Debit","amount":"$0.01","source":{"object":"Wallet","id":4,"debit":{"id":7,"source_object_type":"Bond","source_object_id":4,"amount_cents":1,"amount_currency":"USD","created_at":"2018-08-02T23:58:48Z","updated_at":"2018-08-02T23:58:48Z","wallet_id":4},"issued_for":{"id":6,"payload":"{\"audio_url\":null}","batch_id":5,"created_at":"2018-08-02T20:41:08Z","updated_at":"2018-08-02T23:58:48Z","parent_id":null,"status":"paid","contracts_count":0}}},{"object":"Transaction","id":8,"type":"Debit","amount":"$0.25","source":{"object":"Wallet","id":5,"debit":{"id":8,"source_object_type":"Bond","source_object_id":5,"amount_cents":25,"amount_currency":"USD","created_at":"2018-08-04T00:11:30Z","updated_at":"2018-08-04T00:11:30Z","wallet_id":4},"issued_for":{"id":8,"payload":"{\"audioUrl\":
-        \"https://s3.ca-central-1.amazonaws.com/wetranscribe-development/store/voa.mp3\"
-        }","batch_id":7,"created_at":"2018-08-04T00:11:13Z","updated_at":"2018-08-04T00:11:30Z","parent_id":null,"status":"paid","contracts_count":0}}}]}'
+      string: '{"object":"Wallet","id":4,"balance":"$99.66","transactions":[{"object":"Transaction","id":5,"type":"Credit","amount":"$100.00","source":{"object":"User","id":4,"email":"s@s.com"}},{"object":"Transaction","id":6,"type":"Debit","amount":"$0.01","source":{"object":"Wallet","id":3,"debit":{"id":6,"source_object_type":"Bond","source_object_id":3,"amount_cents":1,"amount_currency":"USD","created_at":"2018-08-02T21:34:19Z","updated_at":"2018-08-02T21:34:19Z","wallet_id":4},"issued_for":{"id":4,"batch_id":3,"created_at":"2018-08-02T20:23:39Z","updated_at":"2018-08-02T21:34:19Z","parent_id":null,"status":"paid","contracts_count":0}}},{"object":"Transaction","id":7,"type":"Debit","amount":"$0.01","source":{"object":"Wallet","id":4,"debit":{"id":7,"source_object_type":"Bond","source_object_id":4,"amount_cents":1,"amount_currency":"USD","created_at":"2018-08-02T23:58:48Z","updated_at":"2018-08-02T23:58:48Z","wallet_id":4},"issued_for":{"id":6,"batch_id":5,"created_at":"2018-08-02T20:41:08Z","updated_at":"2018-08-02T23:58:48Z","parent_id":null,"status":"paid","contracts_count":0}}},{"object":"Transaction","id":8,"type":"Debit","amount":"$0.25","source":{"object":"Wallet","id":5,"debit":{"id":8,"source_object_type":"Bond","source_object_id":5,"amount_cents":25,"amount_currency":"USD","created_at":"2018-08-04T00:11:30Z","updated_at":"2018-08-04T00:11:30Z","wallet_id":4},"issued_for":{"id":8,"batch_id":7,"created_at":"2018-08-04T00:11:13Z","updated_at":"2018-08-04T00:11:30Z","parent_id":null,"status":"paid","contracts_count":0}}},{"object":"Transaction","id":9,"type":"Debit","amount":"$0.01","source":{"object":"Wallet","id":6,"debit":{"id":9,"source_object_type":"Bond","source_object_id":6,"amount_cents":1,"amount_currency":"USD","created_at":"2018-08-06T03:39:46Z","updated_at":"2018-08-06T03:39:46Z","wallet_id":4},"issued_for":{"id":6,"batch_id":5,"created_at":"2018-08-02T20:41:08Z","updated_at":"2018-08-02T23:58:48Z","parent_id":null,"status":"paid","contracts_count":0}}},{"object":"Transaction","id":10,"type":"Debit","amount":"$0.01","source":{"object":"Wallet","id":7,"debit":{"id":10,"source_object_type":"Bond","source_object_id":7,"amount_cents":1,"amount_currency":"USD","created_at":"2018-08-06T05:06:03Z","updated_at":"2018-08-06T05:06:03Z","wallet_id":4},"issued_for":{"id":6,"batch_id":5,"created_at":"2018-08-02T20:41:08Z","updated_at":"2018-08-02T23:58:48Z","parent_id":null,"status":"paid","contracts_count":0}}},{"object":"Transaction","id":11,"type":"Debit","amount":"$0.01","source":{"object":"Wallet","id":8,"debit":{"id":11,"source_object_type":"Bond","source_object_id":8,"amount_cents":1,"amount_currency":"USD","created_at":"2018-08-06T05:08:33Z","updated_at":"2018-08-06T05:08:33Z","wallet_id":4},"issued_for":{"id":6,"batch_id":5,"created_at":"2018-08-02T20:41:08Z","updated_at":"2018-08-02T23:58:48Z","parent_id":null,"status":"paid","contracts_count":0}}},{"object":"Transaction","id":12,"type":"Debit","amount":"$0.01","source":{"object":"Wallet","id":9,"debit":{"id":12,"source_object_type":"Bond","source_object_id":9,"amount_cents":1,"amount_currency":"USD","created_at":"2018-08-06T05:10:15Z","updated_at":"2018-08-06T05:10:15Z","wallet_id":4},"issued_for":{"id":6,"batch_id":5,"created_at":"2018-08-02T20:41:08Z","updated_at":"2018-08-02T23:58:48Z","parent_id":null,"status":"paid","contracts_count":0}}},{"object":"Transaction","id":13,"type":"Debit","amount":"$0.01","source":{"object":"Wallet","id":10,"debit":{"id":13,"source_object_type":"Bond","source_object_id":10,"amount_cents":1,"amount_currency":"USD","created_at":"2018-08-06T07:03:09Z","updated_at":"2018-08-06T07:03:09Z","wallet_id":4},"issued_for":{"id":6,"batch_id":5,"created_at":"2018-08-02T20:41:08Z","updated_at":"2018-08-02T23:58:48Z","parent_id":null,"status":"paid","contracts_count":0}}},{"object":"Transaction","id":14,"type":"Debit","amount":"$0.01","source":{"object":"Wallet","id":11,"debit":{"id":14,"source_object_type":"Bond","source_object_id":11,"amount_cents":1,"amount_currency":"USD","created_at":"2018-08-06T07:03:52Z","updated_at":"2018-08-06T07:03:52Z","wallet_id":4},"issued_for":{"id":6,"batch_id":5,"created_at":"2018-08-02T20:41:08Z","updated_at":"2018-08-02T23:58:48Z","parent_id":null,"status":"paid","contracts_count":0}}},{"object":"Transaction","id":15,"type":"Debit","amount":"$0.01","source":{"object":"Wallet","id":12,"debit":{"id":15,"source_object_type":"Bond","source_object_id":12,"amount_cents":1,"amount_currency":"USD","created_at":"2018-08-06T07:04:31Z","updated_at":"2018-08-06T07:04:31Z","wallet_id":4},"issued_for":{"id":6,"batch_id":5,"created_at":"2018-08-02T20:41:08Z","updated_at":"2018-08-02T23:58:48Z","parent_id":null,"status":"paid","contracts_count":0}}}]}'
     http_version: 
-  recorded_at: Mon, 06 Aug 2018 03:39:45 GMT
-- request:
-    method: get
-    uri: http://localhost:3000/api/wallet/
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Content-Type:
-      - application/json
-      Authorization:
-      - Basic ZGNhOTY2MDllOGIwOTc5YjBiNGY0ZTM0NGUzZmIzNmI6
-  response:
-    status:
-      code: 401
-      message: Unauthorized
-    headers:
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Xss-Protection:
-      - 1; mode=block
-      X-Content-Type-Options:
-      - nosniff
-      Content-Type:
-      - application/json; charset=utf-8
-      Cache-Control:
-      - no-cache
-      X-Request-Id:
-      - 84565c53-f879-4564-87ae-5d2d1c8a51d6
-      X-Runtime:
-      - '0.052380'
-      Transfer-Encoding:
-      - chunked
-    body:
-      encoding: UTF-8
-      string: '{"error":"Not Authorized"}'
-    http_version: 
-  recorded_at: Tue, 07 Aug 2018 07:57:59 GMT
+  recorded_at: Fri, 10 Aug 2018 00:04:04 GMT
 recorded_with: VCR 4.0.0

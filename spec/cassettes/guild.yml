@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://testing.openguilds.com/api/batches/92
+    uri: https://testing.openguilds.com/api/guilds/47
     body:
       encoding: US-ASCII
       string: ''
@@ -19,7 +19,7 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Sat, 11 Aug 2018 21:24:27 GMT
+      - Tue, 14 Aug 2018 00:52:00 GMT
       Connection:
       - keep-alive
       X-Frame-Options:
@@ -33,13 +33,13 @@ http_interactions:
       Vary:
       - Accept-Encoding
       Etag:
-      - W/"5221b1978381e408998f306cd1ca9207"
+      - W/"b5188b7301e76bc4d4cbafef676ce483"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 71c86b6a-8697-478d-a2ca-5236a6049be6
+      - 22349249-a318-4ff4-9660-90b4c6e25246
       X-Runtime:
-      - '0.029949'
+      - '0.013525'
       Strict-Transport-Security:
       - max-age=15552000; includeSubDomains
       Transfer-Encoding:
@@ -48,7 +48,7 @@ http_interactions:
       - 1.1 vegur
     body:
       encoding: UTF-8
-      string: '{"object":"Batch","id":92,"fraction_completed":"2/2","completed":true,"status":"Completed"}'
+      string: '{"object":"Guild","id":47,"price_floor":"0.25"}'
     http_version: 
-  recorded_at: Sat, 11 Aug 2018 21:24:28 GMT
+  recorded_at: Tue, 14 Aug 2018 00:52:01 GMT
 recorded_with: VCR 4.0.0

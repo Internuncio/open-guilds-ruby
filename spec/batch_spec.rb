@@ -16,26 +16,26 @@ RSpec.describe Openguilds::Batch do
     end
   end
 
-  describe "POST .create" do
-    it 'should return data from OpenGuilds' do
-      batch = described_class.create(
-        api_key: test1[:token],
-        guild_id: test1[:guild_id],
-        batch: batch_params
-      )
-
-      expect(batch["status"]).to eq("Unpaid")
-    end
-  end
+  # describe "POST .create" do
+  #   it 'should return data from OpenGuilds' do
+  #     batch = described_class.create(
+  #       api_key: test1[:token],
+  #       guild_id: test1[:guild_id],
+  #       batch: batch_params
+  #     )
+  #
+  #     expect(batch["status"]).to eq("Unpaid")
+  #   end
+  # end
 
   describe "GET .get_batch" do
     it 'should return a batch from OpenGuilds' do
       batch = described_class.get_batch(
-        batch_id: 11,
+        batch_id: 92,
         api_key: test1[:token]
       )
-
-      expect(batch["id"]).to eq(11)
+      puts batch
+      expect(batch["id"]).to eq(92)
     end
   end
 
@@ -50,16 +50,16 @@ RSpec.describe Openguilds::Batch do
   #   end
   # end
 
-  describe "POST #pay_for_a_batch" do
-    it "should return a wallet with a new balance" do
-      batch = described_class.pay_for_a_batch(
-        batch_id: 11,
-        api_key: test1[:token]
-      )
-
-      expect(batch["object"]).to eq 'Wallet'
-    end
-  end
+  # describe "POST #pay_for_a_batch" do
+  #   it "should return a wallet with a new balance" do
+  #     batch = described_class.pay_for_a_batch(
+  #       batch_id: 83,
+  #       api_key: test1[:token]
+  #     )
+  #
+  #     expect(batch["object"]).to eq 'Wallet'
+  #   end
+  # end
 
   def batch_params
     {
@@ -79,9 +79,9 @@ RSpec.describe Openguilds::Batch do
 
   def test1
     {
-      email: "test1@test.com",
+      email: "we@we.com",
       password: "111111",
-      token: "46cb88391c80fe60a773aaf88999ffbc",
+      token: "1b4a66979ef58b0fecd8775a0634d8d6",
       guild_id: 7
     }
   end

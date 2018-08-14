@@ -6,6 +6,7 @@ require "openguilds/batch"
 require "openguilds/registration"
 require "openguilds/authentication"
 require "openguilds/wallet"
+require "openguilds/guild"
 
 module Openguilds
   @api_base = 'https://testing.openguilds.com/api'
