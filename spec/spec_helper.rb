@@ -1,5 +1,14 @@
 require "bundler/setup"
 require "openguilds"
+require "rspec"
+require "webmock"
+require "vcr"
+require "byebug"
+require "pry"
+require "pry-byebug"
+require 'openguilds/error'
+require 'openguilds/errors'
+require 'openguilds/authentication'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
@@ -11,4 +20,9 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+end
+
+VCR.configure do |config|
+  config.cassette_library_dir = "spec/cassettes"
+  config.hook_into :webmock
 end
