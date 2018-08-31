@@ -4,7 +4,7 @@ RSpec.describe Openguilds::Batch do
 
   before do
     VCR.insert_cassette 'batch', record: :new_episodes
-    Openguilds.api_key = 'a4b25f60db4c7c9999ad42ccc5d767d2'
+    Openguilds.api_key = 'dca96609e8b0979b0b4f4e344e3fb36b'
   end
 
   after do
@@ -20,11 +20,26 @@ RSpec.describe Openguilds::Batch do
   describe "POST .create" do
     it 'should return data from OpenGuilds' do
       batch = described_class.create(
-        type: "audio",
-        guild: 2,
         audio_url: audio_url
       )
-      expect(batch).not_to be_nil
+
+      expect(batch["status"]).to eq("Unpaid")
+    end
+  end
+
+  describe "GET .get_batch" do
+    it 'should return a batch from OpenGuilds' do
+      batch = described_class.get_batch(3)
+
+      expect(batch["status"]).to eq("Unpaid")
+    end
+  end
+
+  describe "DELETE .cancel_batch" do
+    it "should cancel the batch" do
+      batch = described_class.cancel_batch(3)
+
+      expect(batch["canceled"]).to eq true
     end
   end
 
