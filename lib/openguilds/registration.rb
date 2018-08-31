@@ -15,7 +15,7 @@ module Openguilds
         }
       )
 
-      return response.body
+      return JSON.parse(response.body)
     end
   end
 end
