@@ -6,11 +6,13 @@ require "openguilds/version"
 Gem::Specification.new do |spec|
   spec.name          = "openguilds"
   spec.version       = Openguilds::VERSION
-  spec.authors       = ["SENC275"]
-  spec.email         = ["chensen275@gmail.com"]
+  spec.authors       = ["OpenGuilds"]
+  spec.email         = ["nolan@openguilds.com"]
 
   spec.summary       = %q{A API wrapper for Openguilds API.}
-  spec.homepage      = "https:--------"
+  spec.summary       = ""
+  spec.description   = ""
+  spec.homepage      = "https://openguilds.com"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
