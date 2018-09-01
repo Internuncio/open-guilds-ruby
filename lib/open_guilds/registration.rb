@@ -3,9 +3,7 @@ module Openguilds
     include HTTParty
 
     def self.register(params)
-      self.base_uri Openguilds.api_base
 
-      puts params
       response = self.post(
         "/register",
         :query => {

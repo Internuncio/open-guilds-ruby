@@ -3,8 +3,6 @@ module Openguilds
     include HTTParty
 
     def self.basic_auth(params)
-      self.base_uri Openguilds.api_base
-
       if params[:email].nil? or params[:password].nil?
         raise ArgumentError
       end
