@@ -1,11 +1,12 @@
 require "httparty"
 require "json"
+
 require "open_guilds/version"
+require "open_guilds/errors"
 require "open_guilds/client"
 require "open_guilds/util"
 require "open_guilds/response"
 require "open_guilds/api_resource"
-require "open_guilds/errors"
 require "open_guilds/batch"
 require "open_guilds/registration"
 

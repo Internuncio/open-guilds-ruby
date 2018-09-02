@@ -10,7 +10,6 @@ require "faraday"
 require "pry-byebug"
 require 'open_guilds/error'
 require 'open_guilds/errors'
-require 'open_guilds/authentication'
 require File.expand_path("../test_data", __FILE__)
 
 RSpec.configure do |config|
