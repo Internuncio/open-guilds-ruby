@@ -8,10 +8,11 @@ gemspec
 gem 'faraday', "~> 0.15.2"
 
 group :development do
-  gem 'webmock'
-  gem 'vcr'
   gem 'byebug'
+  gem 'dotenv'
+  gem 'rspec'
   gem 'pry'
   gem 'pry-byebug'
-  gem 'dotenv'
+  gem 'webmock'
+  gem 'vcr'
 end
