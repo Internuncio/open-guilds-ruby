@@ -1,10 +1,9 @@
-module Openguilds
+module OpenGuilds
   class Registration
-    include HTTParty
-
     def self.register(params)
 
-      response = self.post(
+      response = self.execute_request(
+        :post,
         "/register",
         :query => {
           email: params[:email],

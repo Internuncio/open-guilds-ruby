@@ -113,5 +113,49 @@ RSpec.describe OpenGuilds::Client do
                                headers: { stub: "true" })
       end
     end
+
+    context 'with bad params' do
+      it 'should raise an error' do
+        stub_request(:post, "#{OpenGuilds.api_base}/v1/users")
+          .with(headers: { "stub" => "true" })
+          .to_return(body: '{ "user": "<div class="user">Ryan</div>" }')
+
+        client = described_class.new
+        expect{
+        client.execute_request(:post, "/v1/users",
+                               headers: { stub: "true" },
+                               params: {})
+        }.to raise_error OpenGuilds::APIError
+      end
+    end
+
+    context 'with errors' do
+      context 'when a client error' do
+        it 'should return the error' do
+          connection = double
+          client = described_class.new(connection)
+          allow(connection).to receive(:run_request)
+            .and_raise(
+              Faraday::Error::ClientError.new(
+                "server responded with status 401", 
+                {
+                  status: 401,
+                  headers: {},
+                  body: { error: 'You are not authorized to perform this aciton or access this object. You may be trying to access an object you do not own, or have permission to modify.' }
+                }
+              )
+            )
+
+          expect{
+            client.execute_request(
+              :post, 
+              "/v1/users",
+              headers: { stub: "true" },
+              params: {}
+            )
+          }.to raise_error OpenGuilds::AuthorizationError
+        end
+      end
+    end
   end
 end

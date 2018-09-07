@@ -1,4 +1,3 @@
-require "httparty"
 require "json"
 
 require "open_guilds/version"

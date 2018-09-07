@@ -1,3 +1,5 @@
+require 'base64'
+
 module OpenGuilds
   class Client
     attr_accessor :connection
@@ -10,7 +12,6 @@ module OpenGuilds
     def self.default_connection
       Faraday.new do |c|
         c.use Faraday::Request::Multipart
-        c.use Faraday::Request::UrlEncoded
         c.use Faraday::Response::RaiseError
         c.adapter Faraday.default_adapter
       end
@@ -69,47 +70,50 @@ module OpenGuilds
 
       check_api_key!(api_key)
 
-      params = Util.objects_to_ids(params)
       url = api_url(path, api_base)
-
-      body = nil
-      query_params = nil
-
-      case method.to_s.downcase.to_sym
-      when :get, :head, :delete
-        query_params = params
-      else
-        body = if headers[:content_type] && headers[:content_type] == "multipart/form-data"
-                 params
-               else
-                 Util.encode_parameters(params)
-               end
-      end
-
-      # This works around an edge case where we end up with both query
-      # parameters in `query_params` and query parameters that are appended
-      # onto the end of the given path. In this case, Faraday will silently
-      # discard the URL's parameters which may break a request.
-      #
-      # Here we decode any parameters that were added onto the end of a path
-      # and add them to `query_params` so that all parameters end up in one
-      # place and all of them are correctly included in the final request.
-      u = URI.parse(path)
-      unless u.query.nil?
-        query_params ||= {}
-        query_params = Hash[URI.decode_www_form(u.query)].merge(query_params)
-
-        # Reset the path minus any query parameters that were specified.
-        path = u.path
-      end
 
       headers = request_headers(api_key, method)
                 .update(Util.normalize_headers(headers))
 
-      http_resp = connection.run_request(method, url, body, headers) do |req|
-        req.options.open_timeout = OpenGuilds.open_timeout
-        req.options.timeout = OpenGuilds.read_timeout
-        req.params = query_params unless query_params.nil?
+      case
+      when params.is_a?(Hash)
+        body = params.to_json
+      when params.is_a?(JSON)
+        body = params
+      else
+        body = params.to_json
+      end
+
+      begin
+
+        http_resp = connection.run_request(method, url, body, headers) do |req|
+          req.options.open_timeout = OpenGuilds.open_timeout
+          req.options.timeout = OpenGuilds.read_timeout
+        end
+
+      rescue Faraday::Error::ClientError => e
+        case
+        when e.response[:status] == 422
+          raise OpenGuilds::InvalidParametersError.new(
+            JSON.parse(e.response[:body])["error"],
+            http_status: e.response[:status],
+            http_body: e.response[:body],
+            json_body: e.response[:body],
+            http_headers: e.response[:headers],
+            code: e.response[:status]
+          )
+        when e.response[:status] == 401
+          raise OpenGuilds::AuthorizationError.new(
+            e.message,
+            http_status: e.response[:status],
+            http_body: e.response[:body],
+            json_body: e.response[:body],
+            http_headers: e.response[:headers],
+            code: e.response[:status]
+          )
+        else
+          raise general_api_error(e.message, e.response)
+        end
       end
 
       begin
@@ -118,7 +122,7 @@ module OpenGuilds
         raise general_api_error(http_resp.status, http_resp.body)
       end
 
-      # Allows StripeClient#request to return a response object to a caller.
+      # Allows OpenGuilds::Client#request to return a response object to a caller.
       @last_response = resp
       [resp, api_key]
     end
@@ -148,8 +152,8 @@ module OpenGuilds
 
     def request_headers(api_key, method)
       headers = {
-        "Authorization" => "Bearer #{api_key}",
-        "Content-Type" => "application/json",
+        "Authorization" => "Basic #{Base64.encode64(api_key)}",
+        "Content-Type" => "application/json"
       }
 
       # It is only safe to retry network failures on post and delete
@@ -163,6 +167,12 @@ module OpenGuilds
       end
 
       return headers
+    end
+
+    def general_api_error(status, body)
+      APIError.new("Invalid response object from API: #{body.inspect} " \
+                   "(HTTP response code was #{status})",
+                   http_status: status, http_body: body)
     end
   end
 end

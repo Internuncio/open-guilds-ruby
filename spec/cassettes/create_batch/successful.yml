@@ -1,0 +1,60 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://testing.openguilds.com/api/guild/1/batches
+    body:
+      encoding: UTF-8
+      string: '{"batch":{"data_attributes":[{"parameters_attributes":[{"key":"key","value":"value"}]}]}}'
+    headers:
+      User-Agent:
+      - Faraday v0.15.2
+      Authorization:
+      - Basic ODY1YTMxZThkYTFhYjg4OTZlMzEwODg0ZWExZjZiYTY=
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Fri, 07 Sep 2018 01:38:07 GMT
+      Connection:
+      - keep-alive
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding
+      Etag:
+      - W/"c79f0ae15a6254b5325822aa7ecf4e79"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - b99804b7-7a1e-45e4-9b26-15c0f8d7d847
+      X-Runtime:
+      - '0.291789'
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: ASCII-8BIT
+      string: '{"object":"Batch","id":1,"fraction_completed":"0/1","completed":false,"status":"Unpaid"}'
+    http_version: 
+  recorded_at: Fri, 07 Sep 2018 01:38:08 GMT
+recorded_with: VCR 4.0.0

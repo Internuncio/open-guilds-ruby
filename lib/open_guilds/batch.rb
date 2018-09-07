@@ -1,65 +1,32 @@
-module Openguilds
-  class Batch
-    include HTTParty
-
-    def initialize(params = {})
-      @audio_url = params(:audio_url)
-      raise ArgumentError if @audio_url.blank?
-    end
-
+module OpenGuilds
+  class Batch < APIResource
     class << self
-      def create(params)
-        self.base_uri Openguilds.api_base
-
-        response = self.post("/guild/4/batches",
-          :headers => { 'Content-Type' => 'application/json' },
-          :body => payload.to_json,
-          :basic_auth => auth
+      def create(guild_id, params)
+        response, key = client.execute_request(
+          :post,
+          "/guild/#{guild_id}/batches",
+          :params => params
         )
 
-        return JSON.parse(response.body)
+        return response
       end
 
-      def get_batch(batch_id)
-        self.base_uri Openguilds.api_base
-
-        response = self.get("/batches/#{batch_id}",
-          :headers => { 'Content-Type' => 'application/json' },
-          :basic_auth => auth
+      def get(batch_id)
+        response, key = client.execute_request(
+          :get,
+          "/batches/#{batch_id}"
         )
 
-        return JSON.parse(response.body)
+        return response
       end
 
-      #Note: api DELETE, is not available now.
-      def cancel_batch(batch_id)
-        self.base_uri Openguilds.api_base
-
-        response = self.delete("/batches/3",
-          :headers => { 'Content-Type' => 'application/json' },
-          :basic_auth => auth
+      def cancel(batch_id)
+        response, key = client.execute_request(
+          :get,
+          "/batches/#{batch_id}"
         )
 
-        return JSON.parse(response.body)
-      end
-
-      private
-
-      def payload
-        {
-          batch: {
-            data: [
-              { audio_url: @audio_url }
-            ]
-          }
-        }
-      end
-
-      def auth
-        {
-          username: Openguilds.api_key,
-          password: ''
-        }
+        return response
       end
     end
   end
