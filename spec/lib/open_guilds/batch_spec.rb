@@ -39,8 +39,13 @@ RSpec.describe OpenGuilds::Batch do
   describe '.show', vcr: { cassette_name: 'show_batch/successful' } do
     let!(:response) { described_class.get(ENV["BATCH_ID"]) }
 
-    it 'should return a 200 response' do
+    it 'should return a batch object' do
       expect(response).to be_a OpenGuilds::Batch
+    end
+
+    it 'should return data in the batch object' do
+      expect(response.data.length).to eq 1
+      expect(response.data.first).to be_a OpenGuilds::Datum
     end
   end
 end

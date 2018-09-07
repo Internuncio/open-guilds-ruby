@@ -10,7 +10,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.15.2
       Authorization:
-      - Basic ODY1YTMxZThkYTFhYjg4OTZlMzEwODg0ZWExZjZiYTY=
+      - Basic NDZiNzU1N2Q5NTY0ZmVkMTQxYTYxNDYyMTNkMzEwZDA=
       Content-Type:
       - application/json
       Accept-Encoding:
@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Fri, 07 Sep 2018 02:17:56 GMT
+      - Fri, 07 Sep 2018 21:44:39 GMT
       Connection:
       - keep-alive
       X-Frame-Options:
@@ -39,13 +39,13 @@ http_interactions:
       Vary:
       - Accept-Encoding
       Etag:
-      - W/"62f2a618aad5555378ea6bf81852e39c"
+      - W/"0e801c92e4d479317c493ae29a6e02bb"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 0b6ee71b-396b-4f86-98ef-1ee95e43d712
+      - 8305c309-2cc9-4fa6-b5bf-80cfe50f0909
       X-Runtime:
-      - '0.066534'
+      - '0.295450'
       Strict-Transport-Security:
       - max-age=15552000; includeSubDomains
       Transfer-Encoding:
@@ -54,7 +54,7 @@ http_interactions:
       - 1.1 vegur
     body:
       encoding: ASCII-8BIT
-      string: '{"object":"Batch","id":1,"fraction_completed":"0/1","completed":false,"status":"Unpaid"}'
+      string: '{"object":"Batch","id":1,"fraction_completed":"0/1","completed":false,"status":"Unpaid","data":[{"object":"Datum","id":1,"status":"unpaid","contracts_count":0,"parameters":{"key":"value"}}]}'
     http_version: 
-  recorded_at: Fri, 07 Sep 2018 02:17:56 GMT
+  recorded_at: Fri, 07 Sep 2018 21:44:40 GMT
 recorded_with: VCR 4.0.0

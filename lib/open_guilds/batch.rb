@@ -1,11 +1,13 @@
 module OpenGuilds
   class Batch < APIResource
-    attr_reader :fraction_completed, :completed, :status
+    attr_reader :fraction_completed, :completed, :status, :id, :data
 
     def initialize(params)
+      @id = params[:id]
       @fraction_completed = params[:fraction_completed]
       @completed = params[:completed]
       @status = params[:status]
+      @data = params[:data].map {|datum| OpenGuilds::Datum.object_from(datum)}
     end
 
     class << self
