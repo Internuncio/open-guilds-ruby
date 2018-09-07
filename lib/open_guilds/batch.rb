@@ -1,6 +1,18 @@
 module OpenGuilds
   class Batch < APIResource
+    attr_reader :fraction_completed, :completed, :status
+
+    def initialize(params)
+      @fraction_completed = params[:fraction_completed]
+      @completed = params[:completed]
+      @status = params[:status]
+    end
+
     class << self
+      def object_from(hash)
+        self.new(hash)
+      end
+
       def create(guild_id, params)
         response, key = client.execute_request(
           :post,
@@ -8,7 +20,7 @@ module OpenGuilds
           :params => params
         )
 
-        return response
+        return self.object_from(response.data)
       end
 
       def get(batch_id)
@@ -17,7 +29,7 @@ module OpenGuilds
           "/batches/#{batch_id}"
         )
 
-        return response
+        return self.object_from(response.data)
       end
 
       def cancel(batch_id)
