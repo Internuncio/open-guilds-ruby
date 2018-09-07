@@ -5,12 +5,12 @@ http_interactions:
     uri: https://testing.openguilds.com/api/guild/1/batches
     body:
       encoding: UTF-8
-      string: '{"batch":{"data_attributes":[{"parameters_attributes":[{"key":"key","value":"value"}]}]}}'
+      string: "{}"
     headers:
       User-Agent:
       - Faraday v0.15.2
       Authorization:
-      - Basic NDZiNzU1N2Q5NTY0ZmVkMTQxYTYxNDYyMTNkMzEwZDA=
+      - Basic ODY1YTMxZThkYTFhYjg4OTZlMzEwODg0ZWExZjZiYTY=
       Content-Type:
       - application/json
       Accept-Encoding:
@@ -19,13 +19,13 @@ http_interactions:
       - "*/*"
   response:
     status:
-      code: 201
-      message: Created
+      code: 422
+      message: Unprocessable Entity
     headers:
       Server:
       - Cowboy
       Date:
-      - Fri, 07 Sep 2018 21:43:01 GMT
+      - Fri, 07 Sep 2018 17:35:43 GMT
       Connection:
       - keep-alive
       X-Frame-Options:
@@ -38,14 +38,12 @@ http_interactions:
       - application/json; charset=utf-8
       Vary:
       - Accept-Encoding
-      Etag:
-      - W/"ecb05d43b78e3ddfd24a17d6fac3b885"
       Cache-Control:
-      - max-age=0, private, must-revalidate
+      - no-cache
       X-Request-Id:
-      - 44fc503b-94f1-4fa8-9c5f-fe642a9b195f
+      - 99d4af79-c1a3-4b85-896b-e2ae8691acdd
       X-Runtime:
-      - '0.564603'
+      - '0.054431'
       Strict-Transport-Security:
       - max-age=15552000; includeSubDomains
       Transfer-Encoding:
@@ -54,7 +52,7 @@ http_interactions:
       - 1.1 vegur
     body:
       encoding: ASCII-8BIT
-      string: '{"object":"Batch","id":1,"fraction_completed":"0/1","completed":false,"status":"Unpaid","data":[{"object":"Datum","id":1,"status":"unpaid","contracts_count":0,"parameters":{"key":"value"}}]}'
+      string: '{"error":"param is missing or the value is empty: batch"}'
     http_version: 
-  recorded_at: Fri, 07 Sep 2018 21:43:02 GMT
+  recorded_at: Fri, 07 Sep 2018 17:35:43 GMT
 recorded_with: VCR 4.0.0
