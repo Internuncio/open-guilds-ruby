@@ -1,0 +1,60 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://testing.openguilds.com/api/wallet
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      User-Agent:
+      - Faraday v0.15.2
+      Authorization:
+      - Basic YTIwOWIwYzA3YTg5NmUzNDMwNWI5MzU1MjZkYmMzZmY=
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Date:
+      - Fri, 07 Sep 2018 22:26:43 GMT
+      Connection:
+      - keep-alive
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding
+      Etag:
+      - W/"d1837cb2722b6bbce7bbeb76648e15b2"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - c94d4f84-b493-4e5a-93ea-7761c60e1b96
+      X-Runtime:
+      - '0.857669'
+      Strict-Transport-Security:
+      - max-age=15552000; includeSubDomains
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: ASCII-8BIT
+      string: '{"object":"Wallet","id":1,"balance":"$5.00","transactions":[{"object":"Transaction","id":1,"type":"Credit","amount":"$5.00","source":{"object":"User","id":1,"email":"email@example.com"}}]}'
+    http_version: 
+  recorded_at: Fri, 07 Sep 2018 22:26:44 GMT
+recorded_with: VCR 4.0.0
