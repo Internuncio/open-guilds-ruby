@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://testing.openguilds.com/api/guild/1/batches
+    uri: https://testing.openguilds.com/api/guilds/1/batches
     body:
       encoding: UTF-8
       string: '{"batch":{"data_attributes":[{"parameters_attributes":[{"key":"key","value":"value"}]}]}}'
@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Sat, 08 Sep 2018 01:54:07 GMT
+      - Sat, 08 Sep 2018 19:50:23 GMT
       Connection:
       - keep-alive
       X-Frame-Options:
@@ -39,13 +39,13 @@ http_interactions:
       Vary:
       - Accept-Encoding
       Etag:
-      - W/"4fd798cb159352a9188766b4c486dc41"
+      - W/"a31769138cbfd37df7d82168248d11ab"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - daaca4cc-ed2c-4458-a480-a906a85b9d96
+      - 974f9d0f-50a3-45b2-9976-e05348914318
       X-Runtime:
-      - '0.459645'
+      - '1.056752'
       Strict-Transport-Security:
       - max-age=15552000; includeSubDomains
       Transfer-Encoding:
@@ -54,7 +54,7 @@ http_interactions:
       - 1.1 vegur
     body:
       encoding: ASCII-8BIT
-      string: '{"object":"Batch","id":1,"fraction_completed":"0/1","completed":false,"status":"Unpaid","data":[{"object":"Datum","id":1,"status":"unpaid","contracts_count":0,"parameters":{"key":"value"}}]}'
+      string: '{"object":"Batch","id":2,"fraction_completed":"0/1","completed":false,"status":"Unpaid","data":[{"object":"Datum","id":2,"status":"unpaid","contracts_count":0,"parameters":{"key":"value"}}]}'
     http_version: 
-  recorded_at: Sat, 08 Sep 2018 01:54:25 GMT
+  recorded_at: Sat, 08 Sep 2018 19:50:24 GMT
 recorded_with: VCR 4.0.0

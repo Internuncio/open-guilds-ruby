@@ -15,7 +15,7 @@ module OpenGuilds
       def create(guild_id, params)
         response, key = client.execute_request(
           :post,
-          "/guild/#{guild_id}/batches",
+          "/guilds/#{guild_id}/batches",
           params: params
         )
 
