@@ -11,6 +11,7 @@ require "open_guilds/api_resource"
 
 require "open_guilds/batch"
 require "open_guilds/datum"
+require "open_guilds/guild"
 require "open_guilds/registration"
 require "open_guilds/transaction"
 require "open_guilds/wallet"
