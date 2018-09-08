@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "open_guilds/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "OpenGuilds"
+  spec.name          = "open-guilds"
   spec.version       = OpenGuilds::VERSION
   spec.authors       = ["OpenGuilds"]
   spec.email         = ["nolan@openguilds.com"]
