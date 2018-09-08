@@ -1,6 +1,6 @@
 module OpenGuilds
   class Guild < APIResource
-    attr_reader :id, :name, :description, :price_floor
+    attr_reader :id, :name, :description, :price_floor, :price_floor_cents
 
     def initialize(params)
       @id = params[:id]

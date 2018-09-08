@@ -1,6 +1,6 @@
 module OpenGuilds
   class Transaction
-    attr_reader :id, :type, :amount, :source
+    attr_reader :id, :type, :amount, :source, :amount_cents
 
     def initialize(params)
       @id = params[:id]
