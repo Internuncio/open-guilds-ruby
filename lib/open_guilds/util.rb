@@ -2,6 +2,11 @@ require "cgi"
 
 module OpenGuilds
   module Util
+    def self.object_from(hash)
+      object_class = hash[:object]
+      Object.const_get("OpenGuilds::#{object_class}").new(hash)
+    end
+
     def self.objects_to_ids(h)
       case h
       when APIResource

@@ -1,16 +1,16 @@
 ---
 http_interactions:
 - request:
-    method: post
-    uri: https://testing.openguilds.com/api/guild/1/batches
+    method: get
+    uri: https://testing.openguilds.com/api/wallet
     body:
       encoding: UTF-8
-      string: '{"batch":{"data_attributes":[{"parameters_attributes":[{"key":"key","value":"value"}]}]}}'
+      string: "{}"
     headers:
       User-Agent:
       - Faraday v0.15.2
       Authorization:
-      - Basic N2NjNTdhODNiZjEzMWI4ODA4ZWI3OWFmOGNiYmMwN2U=
+      - Basic YTIwOWIwYzA3YTg5NmUzNDMwNWI5MzU1MjZkYmMzZmY=
       Content-Type:
       - application/json
       Accept-Encoding:
@@ -19,13 +19,13 @@ http_interactions:
       - "*/*"
   response:
     status:
-      code: 201
-      message: Created
+      code: 200
+      message: OK
     headers:
       Server:
       - Cowboy
       Date:
-      - Sat, 08 Sep 2018 01:54:07 GMT
+      - Fri, 07 Sep 2018 22:26:43 GMT
       Connection:
       - keep-alive
       X-Frame-Options:
@@ -39,13 +39,13 @@ http_interactions:
       Vary:
       - Accept-Encoding
       Etag:
-      - W/"4fd798cb159352a9188766b4c486dc41"
+      - W/"d1837cb2722b6bbce7bbeb76648e15b2"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - daaca4cc-ed2c-4458-a480-a906a85b9d96
+      - c94d4f84-b493-4e5a-93ea-7761c60e1b96
       X-Runtime:
-      - '0.459645'
+      - '0.857669'
       Strict-Transport-Security:
       - max-age=15552000; includeSubDomains
       Transfer-Encoding:
@@ -54,7 +54,7 @@ http_interactions:
       - 1.1 vegur
     body:
       encoding: ASCII-8BIT
-      string: '{"object":"Batch","id":1,"fraction_completed":"0/1","completed":false,"status":"Unpaid","data":[{"object":"Datum","id":1,"status":"unpaid","contracts_count":0,"parameters":{"key":"value"}}]}'
+      string: '{"object":"Wallet","id":1,"balance":"$5.00","transactions":[{"object":"Transaction","id":1,"type":"Credit","amount":"$5.00","source":{"object":"User","id":1,"email":"email@example.com"}}]}'
     http_version: 
-  recorded_at: Sat, 08 Sep 2018 01:54:25 GMT
+  recorded_at: Fri, 07 Sep 2018 22:26:44 GMT
 recorded_with: VCR 4.0.0

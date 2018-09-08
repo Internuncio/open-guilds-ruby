@@ -2,10 +2,10 @@
 http_interactions:
 - request:
     method: post
-    uri: https://testing.openguilds.com/api/guild/1/batches
+    uri: https://testing.openguilds.com/api/batches/1/debits
     body:
       encoding: UTF-8
-      string: '{"batch":{"data_attributes":[{"parameters_attributes":[{"key":"key","value":"value"}]}]}}'
+      string: "{}"
     headers:
       User-Agent:
       - Faraday v0.15.2
@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Sat, 08 Sep 2018 01:54:07 GMT
+      - Sat, 08 Sep 2018 01:54:13 GMT
       Connection:
       - keep-alive
       X-Frame-Options:
@@ -39,13 +39,13 @@ http_interactions:
       Vary:
       - Accept-Encoding
       Etag:
-      - W/"4fd798cb159352a9188766b4c486dc41"
+      - W/"bb6be2a4b54cd4d81c4022eadf46e195"
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - daaca4cc-ed2c-4458-a480-a906a85b9d96
+      - d9e55e5c-67ce-4ad1-87b3-da03ad9a56fa
       X-Runtime:
-      - '0.459645'
+      - '0.264935'
       Strict-Transport-Security:
       - max-age=15552000; includeSubDomains
       Transfer-Encoding:
@@ -54,7 +54,7 @@ http_interactions:
       - 1.1 vegur
     body:
       encoding: ASCII-8BIT
-      string: '{"object":"Batch","id":1,"fraction_completed":"0/1","completed":false,"status":"Unpaid","data":[{"object":"Datum","id":1,"status":"unpaid","contracts_count":0,"parameters":{"key":"value"}}]}'
+      string: '{"object":"Wallet","id":1,"balance":"$5.00","transactions":[{"object":"Transaction","id":2,"type":"Debit","amount":"$5.00","source":{"object":"Wallet","id":1,"debit":{"id":2,"source_object_type":"Bond","source_object_id":1,"amount_cents":500,"amount_currency":"USD","created_at":"2018-09-08T01:54:13Z","updated_at":"2018-09-08T01:54:13Z","wallet_id":1},"issued_for":{"id":1,"batch_id":1,"created_at":"2018-09-08T01:54:07Z","updated_at":"2018-09-08T01:54:13Z","parent_id":null,"status":"paid","contracts_count":0}}},{"object":"Transaction","id":1,"type":"Credit","amount":"$5.00","source":{"object":"User","id":1,"email":"email@example.com"}}]}'
     http_version: 
-  recorded_at: Sat, 08 Sep 2018 01:54:25 GMT
+  recorded_at: Sat, 08 Sep 2018 01:54:31 GMT
 recorded_with: VCR 4.0.0
