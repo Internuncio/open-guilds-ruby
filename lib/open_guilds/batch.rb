@@ -11,18 +11,24 @@ module OpenGuilds
     end
 
     class << self
-      def object_from(hash)
-        self.new(hash)
-      end
 
       def create(guild_id, params)
         response, key = client.execute_request(
           :post,
           "/guild/#{guild_id}/batches",
-          :params => params
+          params: params
         )
 
-        return self.object_from(response.data)
+        return Util.object_from(response.data)
+      end
+
+      def fund(batch_id)
+        response, key = client.execute_request(
+          :post,
+          "/batches/#{batch_id}/debits"
+        )
+
+        return Util.object_from(response.data)
       end
 
       def get(batch_id)
@@ -31,16 +37,7 @@ module OpenGuilds
           "/batches/#{batch_id}"
         )
 
-        return self.object_from(response.data)
-      end
-
-      def cancel(batch_id)
-        response, key = client.execute_request(
-          :get,
-          "/batches/#{batch_id}"
-        )
-
-        return response
+        return Util.object_from(response.data)
       end
     end
   end
