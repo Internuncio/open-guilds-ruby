@@ -6,6 +6,7 @@ module OpenGuilds
       @id = params[:id]
       @type = params[:type]
       @amount = params[:amount]
+      @amount_cents = params[:amount_cents]
       @source = params[:source]
     end
 

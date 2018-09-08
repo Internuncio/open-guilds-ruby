@@ -7,6 +7,7 @@ module OpenGuilds
       @name = params[:name]
       @description = params[:description]
       @price_floor = params[:price_floor]
+      @price_floor_cents = params[:price_floor_cents]
     end
 
     class << self
