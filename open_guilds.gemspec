@@ -40,4 +40,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "vcr", "~> 3.4.2"
 
   spec.add_dependency "faraday", "~> 0.15.2"
+  spec.add_dependency "money", "~> 6.12.0"
 end

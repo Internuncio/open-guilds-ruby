@@ -6,6 +6,7 @@ git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 gemspec
 
 gem 'faraday', "~> 0.15.2"
+gem 'money', "~> 6.12.0"
 
 group :development do
   gem 'byebug'
