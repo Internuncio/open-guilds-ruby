@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    open-guilds (0.0.2)
+    open-guilds (0.0.5)
       faraday (~> 0.15.2)
 
 GEM

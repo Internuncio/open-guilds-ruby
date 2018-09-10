@@ -53,11 +53,11 @@ RSpec.describe OpenGuilds::Batch do
     let!(:response) { described_class.fund(ENV["BATCH_ID"]) }
 
     it 'should return the wallet object' do
-      expect(response).to be_a OpenGuilds::Wallet
+      expect(response).to be_a OpenGuilds::List
     end
 
     it 'should return the latest transaction first' do
-      expect(response.transactions.first.type).to eq 'Debit'
+      expect(response.data.first).to be_a OpenGuilds::Transaction
     end
   end
 end
