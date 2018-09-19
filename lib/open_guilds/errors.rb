@@ -35,6 +35,9 @@ module OpenGuilds
   class AuthorizationError < Error
   end
 
+  class AuthenticationError < Error
+  end
+
   class APIError < Error
   end
 
