@@ -132,9 +132,9 @@ module OpenGuilds
     def check_api_key!(api_key)
       unless api_key
         raise AuthenticationError, "No API key provided. " \
-          'Set your API key using "Stripe.api_key = <API-KEY>". ' \
-          "You can generate API keys from the Stripe web interface. " \
-          "See https://stripe.com/api for details, or email support@stripe.com " \
+          'Set your API key using "OpenGuilds.api_key = <API-KEY>". ' \
+          "You can generate API keys from the Open Guilds web interface. " \
+          "See https://stripe.com/api for details, or email support@openguilds.com " \
           "if you have any questions."
       end
 
@@ -142,8 +142,8 @@ module OpenGuilds
 
       raise AuthenticationError, "Your API key is invalid, as it contains " \
         "whitespace. (HINT: You can double-check your API key from the " \
-        "Stripe web interface. See https://stripe.com/api for details, or " \
-        "email support@stripe.com if you have any questions.)"
+        "Open Guilds web interface. See https://stripe.com/api for details, or " \
+        "email support@openguilds.com if you have any questions.)"
     end
 
     def api_url(url = "", api_base = nil)
