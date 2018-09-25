@@ -3,6 +3,7 @@ require "cgi"
 module OpenGuilds
   module Util
     def self.object_from(hash)
+      hash = symbolize_keys(hash)
       object_class = hash[:object]
       Object.const_get("OpenGuilds::#{object_class}").new(hash)
     end
@@ -100,5 +101,12 @@ module OpenGuilds
        .join("-")
     end
     private_class_method :titlecase_parts
+
+    def self.symbolize_keys(hash)
+      hash.each_with_object({}) do
+        |(k, v), h| h[k.to_sym] = v.is_a?(Hash) ? symbolize_keys(v) : v 
+      end
+    end
+    private_class_method :symbolize_keys
   end
 end

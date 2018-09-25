@@ -6,11 +6,5 @@ module OpenGuilds
       @id = params[:id]
       @parameters = params[:parameters]
     end
-
-    class << self
-      def object_from(hash)
-        self.new(hash)
-      end
-    end
   end
 end

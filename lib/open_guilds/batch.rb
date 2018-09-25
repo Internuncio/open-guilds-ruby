@@ -7,7 +7,7 @@ module OpenGuilds
       @fraction_completed = params[:fraction_completed]
       @completed = params[:completed]
       @status = params[:status]
-      @data = params[:data].map {|datum| OpenGuilds::Datum.object_from(datum)}
+      @data = params[:data].map {|datum| OpenGuilds::Util.object_from(datum)}
     end
 
     class << self
