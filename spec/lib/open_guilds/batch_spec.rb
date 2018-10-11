@@ -60,4 +60,16 @@ RSpec.describe OpenGuilds::Batch do
       expect(response.data.first).to be_a OpenGuilds::Transaction
     end
   end
+
+  describe '.cancel', vcr: { cassette_name: 'cancel_batch/successful' } do
+    let!(:response) { described_class.cancel(ENV["REFUNDED_BATCH_ID"]) }
+
+    it 'should return the wallet object' do
+      expect(response).to be_a OpenGuilds::List
+    end
+
+    it 'should return the transactions' do
+      expect(response.data.first).to be_a OpenGuilds::Transaction
+    end
+  end
 end
