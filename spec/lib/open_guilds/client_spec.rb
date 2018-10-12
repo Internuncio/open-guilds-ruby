@@ -171,7 +171,7 @@ RSpec.describe OpenGuilds::Client do
                   body: { 
                     error: 'You are not authorized to perform this aciton or access this object. You may be trying to access an object you do not own, or have permission to modify.',
                     type: 'RecordNotFound'
-                  }
+                  }.to_json
                 }
               )
             )

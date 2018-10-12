@@ -111,7 +111,7 @@ module OpenGuilds
             http_headers: e.response[:headers],
             code: e.response[:status]
           )
-        when e.response[:status] == 404 && e.response[:body][:type] == "RecordNotFound"
+        when e.response[:status] == 404 && JSON.parse(e.response[:body])["type"] == "RecordNotFound"
           raise OpenGuilds::RecordNotFoundError.new(
             e.message,
             http_status: e.response[:status],
