@@ -156,6 +156,37 @@ RSpec.describe OpenGuilds::Client do
           }.to raise_error OpenGuilds::AuthorizationError
         end
       end
+
+      context 'with a record not found error' do
+        it 'should return the error' do
+          connection = double
+          client = described_class.new(connection)
+          allow(connection).to receive(:run_request)
+            .and_raise(
+              Faraday::Error::ClientError.new(
+                "server responded with status 404", 
+                {
+                  status: 404,
+                  headers: {},
+                  body: { 
+                    error: 'You are not authorized to perform this aciton or access this object. You may be trying to access an object you do not own, or have permission to modify.',
+                    type: 'RecordNotFound'
+                  }
+                }
+              )
+            )
+
+          expect{
+            client.execute_request(
+              :post, 
+              "/v1/users",
+              headers: { stub: "true" },
+              params: {}
+            )
+          }.to raise_error OpenGuilds::RecordNotFoundError
+
+        end
+      end
     end
   end
 end

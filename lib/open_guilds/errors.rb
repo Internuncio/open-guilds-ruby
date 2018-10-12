@@ -52,4 +52,7 @@ module OpenGuilds
 
   class APIKeyIncorrect < Error
   end
+
+  class RecordNotFoundError < Error
+  end
 end
