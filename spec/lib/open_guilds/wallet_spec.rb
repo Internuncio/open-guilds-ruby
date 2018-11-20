@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe OpenGuilds::Wallet do
-  describe '.get', vcr: { cassette_name: 'show_wallet/successful' } do
+  describe '.get' do
     let!(:response) { described_class.get() }
 
     it 'should return a wallet object' do

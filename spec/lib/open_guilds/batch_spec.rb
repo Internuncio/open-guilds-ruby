@@ -17,8 +17,7 @@ RSpec.describe OpenGuilds::Batch do
     }
 
 
-    context 'when the batch creation is successful', 
-      vcr: { cassette_name: 'create_batch/successful' } do
+    context 'when the batch creation is successful' do
       let!(:response) { described_class.create(ENV["GUILD_ID"], params) }
 
       it 'should return a batch object' do
@@ -26,8 +25,7 @@ RSpec.describe OpenGuilds::Batch do
       end
     end
 
-    context 'when the batch creation fails',
-     vcr: { cassette_name: 'create_batch/bad_params' } do
+    context 'when the batch creation fails' do
       let(:response) { described_class.create(ENV["GUILD_ID"], {}) }
 
       it 'should return a batch object' do
@@ -36,7 +34,7 @@ RSpec.describe OpenGuilds::Batch do
     end
   end
 
-  describe '.show', vcr: { cassette_name: 'show_batch/successful' } do
+  describe '.show' do
     let!(:response) { described_class.get(ENV["BATCH_ID"]) }
 
     it 'should return a batch object' do
@@ -49,7 +47,7 @@ RSpec.describe OpenGuilds::Batch do
     end
   end
 
-  describe '.fund', vcr: { cassette_name: 'fund_batch/successful' } do
+  describe '.fund' do
     let!(:response) { described_class.fund(ENV["BATCH_ID"]) }
 
     it 'should return the wallet object' do
@@ -61,7 +59,7 @@ RSpec.describe OpenGuilds::Batch do
     end
   end
 
-  describe '.cancel', vcr: { cassette_name: 'cancel_batch/successful' } do
+  describe '.cancel' do
     let!(:response) { described_class.cancel(ENV["REFUNDED_BATCH_ID"]) }
 
     it 'should return the wallet object' do

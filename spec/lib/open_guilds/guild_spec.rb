@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe OpenGuilds::Guild do
-  describe '.get', vcr: { cassette_name: 'show_guild/success' } do
+  describe '.get' do
     let!(:response) { described_class.get(ENV["GUILD_ID"]) }
 
     it 'should return a guild object' do
