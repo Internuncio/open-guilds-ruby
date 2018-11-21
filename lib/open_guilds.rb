@@ -17,6 +17,7 @@ require "open_guilds/registration"
 require "open_guilds/transaction"
 require "open_guilds/wallet"
 require "open_guilds/member"
+require "open_guilds/invite"
 
 
 module OpenGuilds
