@@ -16,7 +16,19 @@ Cuba.define do
   on get do
     on 'api/guilds' do
       on ':id' do |id|
-        res.write read_fixture('guilds', id)
+        on root do
+          res.write read_fixture('guilds', id)
+        end
+
+        on 'members' do
+          on root do
+            res.write read_fixture('members', 'list')
+          end
+
+          on 'find', param("email") do |email|
+            res.write read_fixture('members', 1)
+          end
+        end
       end
 
       on root do
@@ -54,17 +66,8 @@ Cuba.define do
       end
     end
 
-
-    on 'api/guilds/:guild_id/members' do |guild_id|
-      res.write read_fixture('members_list')
-    end
-
-    on 'api/guilds/:guild_id/members/:id' do |guild_id, id|
+    on 'api/members/:id' do |id|
       res.write read_fixture('members', id)
-    end
-
-    on 'api/guilds/:guild_id/members/find', param("email") do |guild_id, email|
-      res.write read_fixture('members', email)
     end
   end
 

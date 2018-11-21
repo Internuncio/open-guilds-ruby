@@ -11,6 +11,10 @@ gem 'faraday', "~> 0.15.2"
 
 group :development do
   gem 'cuba'
+  gem 'capybara'
+  gem 'cutest'
+  gem 'rack-test'
+
   gem 'byebug'
   gem 'dotenv'
   gem 'rspec'
