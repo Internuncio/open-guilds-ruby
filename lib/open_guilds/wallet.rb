@@ -3,11 +3,10 @@ module OpenGuilds
     attr_reader :id, :balance, :transactions
 
     def initialize(params)
+      @values = params
       @id = params[:id]
       @balance = params[:balance]
-      @transactions = params[:transactions].map { 
-        |transaction| OpenGuilds::Transaction.object_from(transaction) 
-      }
+      @transactions = get_transactions_from_values
     end
 
     class << self
@@ -15,13 +14,31 @@ module OpenGuilds
         self.new(params)
       end
 
-      def get()
+      def list
         response, key = client.execute_request(
           :get,
-          "/wallet"
+          "/wallets"
         )
 
-        return self.object_from(response.data)
+        return Util.object_from(response.data)
+      end
+
+      def get(id)
+        response, key = client.execute_request(
+          :get,
+          "/wallets/#{id}"
+        )
+
+        return Util.object_from(response.data)
+      end
+    end
+
+    private
+
+    def get_transactions_from_values
+      @values.fetch(:transactions, [])
+      .map do |transaction|
+        OpenGuilds::Transaction.object_from(transaction)
       end
     end
   end

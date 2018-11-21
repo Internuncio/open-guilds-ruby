@@ -5,7 +5,8 @@ module OpenGuilds
     attr_accessor :connection
 
     def initialize(connection = nil)
-      @connection = connection ||= OpenGuilds::Client.default_connection
+      @connection = connection ||=
+        OpenGuilds::Client.default_connection
     end
 
 
@@ -63,7 +64,8 @@ module OpenGuilds
     end
 
     def execute_request(method, path,
-                        api_base: nil, api_key: nil, headers: {}, params: {})
+                        api_base: nil, api_key: nil,
+                        headers: {}, params: {})
 
       api_base ||= OpenGuilds.api_base
       api_key ||= OpenGuilds.api_key

@@ -34,6 +34,26 @@ Cuba.define do
       end
     end
 
+    on 'api/tasks' do 
+      on ':id' do |id|
+        res.write read_fixture('tasks', id)
+      end
+
+      on root do
+        res.write read_fixture('tasks', 'list')
+      end
+    end
+
+    on 'api/wallets' do 
+      on ':id' do |id|
+        res.write read_fixture('wallets', id)
+      end
+
+      on root do
+        res.write read_fixture('wallets', 'list')
+      end
+    end
+
 
     on 'api/guilds/:guild_id/members' do |guild_id|
       res.write read_fixture('members_list')
@@ -45,23 +65,6 @@ Cuba.define do
 
     on 'api/guilds/:guild_id/members/find', param("email") do |guild_id, email|
       res.write read_fixture('members', email)
-    end
-
-
-    on 'api/tasks' do
-      res.write read_fixture('tasks_list')
-    end
-
-    on 'api/tasks/:id' do |id|
-      res.write read_fixture('tasks', id)
-    end
-
-    on 'api/wallets' do
-      res.write read_fixture('tasks_list')
-    end
-
-    on 'api/wallets/:id' do |id|
-      res.write read_fixture('tasks', id)
     end
   end
 
