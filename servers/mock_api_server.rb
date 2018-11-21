@@ -73,7 +73,7 @@ Cuba.define do
 
   on post do
     on 'api/guilds/:guild_id/invites' do |guild_id|
-      res.write read_fixture('invite')
+      res.write read_fixture('invites', 'create')
     end
 
     on 'api/guilds/:guild_id/batches' do |guild_id|
@@ -92,7 +92,7 @@ Cuba.define do
 
   on delete do
     on 'api/guilds/:guild_id/members/:id' do |guild_id, id|
-      res.write read_fixture('deleted_member')
+      res.write read_fixture('members', 'removed')
     end
 
     on 'api/batches/:id' do |id|
@@ -101,5 +101,5 @@ Cuba.define do
   end
 end
 
-# If this file is loaded from the command line, start the server
+#If this file is loaded from the command line, start the server 
 Rack::Handler::WEBrick.run(Cuba) if $PROGRAM_NAME == __FILE__

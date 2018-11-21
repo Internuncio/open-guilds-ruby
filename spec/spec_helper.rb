@@ -7,14 +7,14 @@ require "faraday"
 require "open_guilds"
 require File.expand_path("../test_data", __FILE__)
 require "socket"
-require 'capybara/rspec'
-require "cuba/capybara"
 require "rack/test"
 
 
 WebMock.disable_net_connect!(allow_localhost: true)
 
 RSpec.configure do |config|
+  config.include Rack::Test::Methods
+
   OpenGuilds.api_key = ENV["LIVE_TEST_KEY"]
   OpenGuilds.api_base = 'http://localhost:8080/api'
 
