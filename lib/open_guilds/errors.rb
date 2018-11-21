@@ -12,10 +12,11 @@ module OpenGuilds
     attr_reader :http_status
     attr_reader :json_body # equivalent to #data
     attr_reader :request_id
+    attr_reader :request_url
 
     # Initializes a Error.
     def initialize(message = nil, http_status: nil, http_body: nil, json_body: nil,
-                   http_headers: nil, code: nil)
+                   http_headers: nil, code: nil, request_url: nil)
       @message = message
       @http_status = http_status
       @http_body = http_body
@@ -28,7 +29,8 @@ module OpenGuilds
     def to_s
       status_string = @http_status.nil? ? "" : "(Status #{@http_status}) "
       id_string = @request_id.nil? ? "" : "(Request #{@request_id}) "
-      "#{status_string}#{id_string}#{@message}"
+      request_url = @request_url.nil? ? "" : "(Request URL: #{@request_url}) "
+      "#{status_string}#{id_string}#{request_url}#{@message}"
     end
   end
 

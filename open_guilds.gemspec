@@ -37,7 +37,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "dotenv", "~> 2.5.0"
   spec.add_development_dependency "rspec", "~> 3.0"
   spec.add_development_dependency "webmock", "~> 3.4.2"
-  spec.add_development_dependency "vcr", "~> 3.4.2"
 
   spec.add_dependency "faraday", "~> 0.15.2"
 end
