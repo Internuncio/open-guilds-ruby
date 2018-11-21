@@ -91,7 +91,7 @@ Cuba.define do
   end
 
   on delete do
-    on 'api/guilds/:guild_id/members/:id' do |guild_id, id|
+    on 'api/members/:id' do |guild_id, id|
       res.write read_fixture('members', 'removed')
     end
 

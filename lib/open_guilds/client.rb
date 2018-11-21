@@ -123,14 +123,14 @@ module OpenGuilds
             code: e.response[:status]
           )
         else
-          raise general_api_error(e.message, e.response, url)
+          raise general_api_error(e.message, e.response, url, method)
         end
       end
 
       begin
         resp = OpenGuilds::Response.from_faraday_response(http_resp)
       rescue JSON::ParserError
-        raise general_api_error(http_resp.status, http_resp.body, url)
+        raise general_api_error(http_resp.status, http_resp.body, url, method)
       end
 
       # Allows OpenGuilds::Client#request to return a response object to a caller.
@@ -180,14 +180,16 @@ module OpenGuilds
       return headers
     end
 
-    def general_api_error(status, body, request_url)
+    def general_api_error(status, body, request_url, method)
       APIError.new(
         "Invalid response object from API: #{body.inspect} " \
         "(HTTP response code was #{status})" \
-        "(Request URL: #{request_url})",
+        "(Request URL: #{request_url})" \
+        "(Method: #{method})",
         http_status: status, 
         http_body: body, 
-        request_url: request_url
+        request_url: request_url,
+        method: method
       )
     end
 

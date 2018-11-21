@@ -44,8 +44,8 @@ RSpec.describe 'Endpoints' do
   )
 
   delete_paths = %w(
-    api/guilds/1/members/1
     api/batches/1
+    api/members/1
   )
 
   post_paths = [

@@ -11,6 +11,10 @@ module OpenGuilds
       @credit_cents = params[:credit_cents]
     end
 
+    def deleted?
+      @values.fetch(:deleted, false)
+    end
+
     class << self
       def get(member_id)
         response, key = client.execute_request(
@@ -34,6 +38,25 @@ module OpenGuilds
         response, key = client.execute_request(
           :get,
           "/guilds/#{guild}/members/find?email=#{email}"
+        )
+
+        return Util.object_from(response.data)
+      end
+
+      def invite(guild:, email:)
+        response, key = client.execute_request(
+          :post,
+          "/guilds/#{guild}/invites",
+          params: { email: email }
+        )
+
+        return Util.object_from(response.data)
+      end
+
+      def remove(member_id)
+        response, key = client.execute_request(
+          :delete,
+          "/members/#{member_id}"
         )
 
         return Util.object_from(response.data)
