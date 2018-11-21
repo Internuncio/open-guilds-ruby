@@ -15,16 +15,25 @@ Cuba.define do
 
   on get do
     on 'api/guilds' do
-      res.write read_fixture('guilds_list')
+      on ':id' do |id|
+        res.write read_fixture('guilds', id)
+      end
+
+      on root do
+        res.write read_fixture('guilds', 'list')
+      end
     end
 
-    on 'api/guilds/:id' do |id|
-      res.write read_fixture('guilds', id)
+    on 'api/batches' do 
+      on ':id' do |id|
+        res.write read_fixture('batches', id)
+      end
+
+      on root do
+        res.write read_fixture('batches', 'list')
+      end
     end
 
-    on 'api/guilds/:id' do |id|
-      res.write read_fixture('guilds', id)
-    end
 
     on 'api/guilds/:guild_id/members' do |guild_id|
       res.write read_fixture('members_list')
@@ -38,13 +47,6 @@ Cuba.define do
       res.write read_fixture('members', email)
     end
 
-    on 'api/batches/:id' do |id|
-      if id
-        res.write read_fixture('batches', id)
-      else
-        res.write read_fixture('batches_list')
-      end
-    end
 
     on 'api/tasks' do
       res.write read_fixture('tasks_list')

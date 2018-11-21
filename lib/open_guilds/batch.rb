@@ -17,6 +17,15 @@ module OpenGuilds
 
     class << self
 
+      def list
+        response, key = client.execute_request(
+          :get,
+          "/batches"
+        )
+
+        return Util.object_from(response.data)
+      end
+
       def cancel(batch_id)
         response, key = client.execute_request(
           :delete,

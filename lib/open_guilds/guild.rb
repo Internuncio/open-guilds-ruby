@@ -19,6 +19,15 @@ module OpenGuilds
 
         return Util.object_from(response.data)
       end
+
+      def list
+        response, key = client.execute_request(
+          :get,
+          "/guilds"
+        )
+
+        return Util.object_from(response.data)
+      end
     end
   end
 end

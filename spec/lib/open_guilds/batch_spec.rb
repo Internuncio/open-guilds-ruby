@@ -18,9 +18,10 @@ RSpec.describe OpenGuilds::Batch do
       }
     }
 
-
     context 'when the batch creation is successful' do
-      let!(:response) { described_class.create(guild: 1, params: params) }
+      let!(:response) { 
+        described_class.create(guild: 1, params: params)
+      }
 
       it 'should return a batch object' do
         expect(response).to be_a OpenGuilds::Batch
@@ -28,15 +29,26 @@ RSpec.describe OpenGuilds::Batch do
     end
 
     context 'when the batch creation fails' do
-      let(:response) { described_class.create(guild: 2, params: params) }
+      let(:response) { 
+        described_class.create(guild: 2, params: params)
+      }
 
       it 'should raise an invalid parameters error' do
-        expect{response}.to raise_error OpenGuilds::InvalidParametersError
+        expect{response}
+          .to raise_error OpenGuilds::InvalidParametersError
       end
     end
   end
 
-  describe '.show' do
+  describe '.list' do
+    let!(:response) { described_class.list }
+
+    it 'should return a list object' do
+      expect(response).to be_a OpenGuilds::List
+    end
+  end
+
+  describe '.get' do
     let!(:response) { described_class.get(1) }
 
     it 'should return a batch object' do
@@ -58,7 +70,7 @@ RSpec.describe OpenGuilds::Batch do
   end
 
   describe '.cancel' do
-    let!(:response) { described_class.cancel(ENV["REFUNDED_BATCH_ID"]) }
+    let!(:response) { described_class.cancel(1) }
 
     it 'should return the batch object' do
       expect(response).to be_a OpenGuilds::Batch
