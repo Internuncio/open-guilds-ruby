@@ -4,6 +4,14 @@ Welcome to your new gem! In this directory, you'll find the files you need to be
 
 TODO: Delete this and the text above, and describe your gem
 
+## Versions
+
+Latest version is 0.1.0
+- Adds mock server for faster tests and easier updating
+- Adds invite object
+- Adds member object and endpoints
+- Updates old endpoints to new beta API
+
 ## Installation
 
 Add this line to your application's Gemfile:

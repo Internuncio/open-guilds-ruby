@@ -91,7 +91,7 @@ RSpec.describe OpenGuilds::Client do
     end
   end
 
-  describe "#execute_request", vcr: false do
+  describe "#execute_request" do
     context "headers" do
       it "should support literal headers" do
         stub_request(:post, "#{OpenGuilds.api_base}/v1/users")

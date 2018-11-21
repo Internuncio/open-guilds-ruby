@@ -5,7 +5,8 @@ module OpenGuilds
     attr_accessor :connection
 
     def initialize(connection = nil)
-      @connection = connection ||= OpenGuilds::Client.default_connection
+      @connection = connection ||=
+        OpenGuilds::Client.default_connection
     end
 
 
@@ -63,7 +64,8 @@ module OpenGuilds
     end
 
     def execute_request(method, path,
-                        api_base: nil, api_key: nil, headers: {}, params: {})
+                        api_base: nil, api_key: nil,
+                        headers: {}, params: {})
 
       api_base ||= OpenGuilds.api_base
       api_key ||= OpenGuilds.api_key
@@ -111,7 +113,7 @@ module OpenGuilds
             http_headers: e.response[:headers],
             code: e.response[:status]
           )
-        when e.response[:status] == 404 && JSON.parse(e.response[:body])["type"] == "RecordNotFound"
+        when e.response[:status] == 404 && record_not_found?(e)
           raise OpenGuilds::RecordNotFoundError.new(
             e.message,
             http_status: e.response[:status],
@@ -121,14 +123,14 @@ module OpenGuilds
             code: e.response[:status]
           )
         else
-          raise general_api_error(e.message, e.response)
+          raise general_api_error(e.message, e.response, url, method)
         end
       end
 
       begin
         resp = OpenGuilds::Response.from_faraday_response(http_resp)
       rescue JSON::ParserError
-        raise general_api_error(http_resp.status, http_resp.body)
+        raise general_api_error(http_resp.status, http_resp.body, url, method)
       end
 
       # Allows OpenGuilds::Client#request to return a response object to a caller.
@@ -178,10 +180,25 @@ module OpenGuilds
       return headers
     end
 
-    def general_api_error(status, body)
-      APIError.new("Invalid response object from API: #{body.inspect} " \
-                   "(HTTP response code was #{status})",
-                   http_status: status, http_body: body)
+    def general_api_error(status, body, request_url, method)
+      APIError.new(
+        "Invalid response object from API: #{body.inspect} " \
+        "(HTTP response code was #{status})" \
+        "(Request URL: #{request_url})" \
+        "(Method: #{method})",
+        http_status: status, 
+        http_body: body, 
+        request_url: request_url,
+        method: method
+      )
+    end
+
+    def record_not_found?(e)
+      begin
+        JSON.parse(e.response[:body])["type"] == "RecordNotFound"
+      rescue JSON::ParserError
+        return false
+      end
     end
   end
 end

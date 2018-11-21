@@ -1,0 +1,7 @@
+{
+  "object": "Transaction",
+  "id": 2,
+  "type": "Guild Debit",
+  "amount" : "$2.00",
+  "amount_cents": 200
+}
