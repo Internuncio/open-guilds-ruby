@@ -67,8 +67,7 @@ module OpenGuilds
     private
 
     def get_data_from_values
-      @values.fetch(:data, [])
-        .map { |datum| OpenGuilds::Util.object_from(datum) }
+      OpenGuilds::Util.object_from(@values.fetch(:data))
     end
   end
 end

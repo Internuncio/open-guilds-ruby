@@ -1,7 +1,8 @@
 {
   "object": "List",
   "url": "/api/guilds/1/tasks",
-  "has_more": "false",
+  "has_more": false,
+  "page": 1,
   "data": [
     {
       "object": "Task",
@@ -14,16 +15,21 @@
         "preview": "https://preview.interface.com",
         "permissions": "open"
       },
-      "connections": [
-        {
-          "object": "Connection",
-          "source": "1",
-          "target": "2"
-        }
-      ],
+      "connections": {
+        "object": "List",
+        "url": "/api/task/1/connections",
+        "has_more": false,
+        "page": 1,
+        "data": [
+          {
+            "object": "Connection",
+            "source_id": "1",
+            "target_id": "2"
+          }
+        ]
+      },
       "created": "2015-05-22T14:56:29.000Z",
       "updated": "2015-05-22T14:56:28.000Z"
     }
   ]
 }
-

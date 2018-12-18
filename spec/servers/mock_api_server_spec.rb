@@ -51,7 +51,6 @@ RSpec.describe 'Endpoints' do
   post_paths = [
     { path: "api/guilds/1/invites", params: invite_params },
     { path: "api/guilds/1/batches", params: batch_params },
-    { path: "api/batches/1/debits", params: debit_params }
   ]
 
   describe 'GET Endpoints' do
