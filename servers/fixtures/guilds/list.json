@@ -1,7 +1,7 @@
 {
   "object": "List",
-  "url": "/api/guilds",
-  "has_more": "false",
+  "url": "api/guilds",
+  "has_more": false,
   "page": 1,
   "data": [
     {

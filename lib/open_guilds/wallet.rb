@@ -36,10 +36,9 @@ module OpenGuilds
     private
 
     def get_transactions_from_values
-      @values.fetch(:transactions, [])
-      .map do |transaction|
-        OpenGuilds::Transaction.object_from(transaction)
-      end
+      OpenGuilds::Transaction.object_from(
+        @values.fetch(:transactions)
+      )
     end
   end
 end
