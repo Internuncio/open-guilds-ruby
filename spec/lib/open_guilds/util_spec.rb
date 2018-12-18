@@ -81,6 +81,15 @@ RSpec.describe OpenGuilds::Util do
   end
 
   def example_object_hash
-{"object"=>"Batch", "id"=>1, "status"=>"Completed", "completed"=>true, "fraction_completed"=>"3/3", "data"=>[{"object"=>"Datum", "status"=>"completed", "parameters"=>{"data"=>"[{\"id\":0,\"text\":\"There be dragons\",\"start\":\"00:00\",\"end\":\"00:05\",\"subject\":\"Speaker 1\"}]"}, "contracts_count"=>1}, {"object"=>"Datum", "status"=>"completed", "parameters"=>{"data"=>"[{\"id\":0,\"text\":\"Where!?\",\"start\":\"00:05\",\"end\":\"00:07\",\"subject\":\"Speaker 2\"}]"}, "contracts_count"=>1}, {"object"=>"Datum", "status"=>"completed", "parameters"=>{"data"=>"[{\"id\":0,\"text\":\"In your kitchen.\",\"start\":\"00:08\",\"end\":\"00:10\",\"subject\":\"Speaker 1\"}]"}, "contracts_count"=>1}]}
+    filepath = [
+      File.expand_path("../../../../servers/fixtures", __FILE__),
+      'batches/1',
+    ].join('/') + '.json'
+
+    JSON.parse(
+      File.read(
+        filepath
+      )
+    )
   end
 end

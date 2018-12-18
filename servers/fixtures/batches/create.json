@@ -1,42 +1,53 @@
 {
   "object": "Batch",
   "id": "1",
-  "data_count": 3,
-  "data_completed_count": 0,
-  "status": "processing",
-  "data": [
-    {
-      "object": "Datum",
-      "id": "1",
-      "status": "processing",
-      "parameters": {
-        "image_url": "www.images.com/image1.png"
+  "data_completed_count": "0",
+  "data_count": "1",
+  "data": {
+    "object": "List",
+    "url": "api/batch/1/data",
+    "has_more": false,
+    "page": 1,
+    "data": [
+      {
+        "object": "Datum",
+        "id": "1",
+        "status": "processing",
+        "parameters": {
+          "image_url": "www.images.com/image1.png"
+        }
+      },
+      {
+        "object": "Datum",
+        "id": "2",
+        "status": "processing",
+        "parameters": {
+          "image_url": "www.images.com/image2.png"
+        }
+      },
+      {
+        "object": "Datum",
+        "id": "3",
+        "status": "processing",
+        "parameters": {
+          "image_url": "www.images.com/image3.png"
+        }
       }
-    },
-    {
-      "object": "Datum",
-      "id": "2",
-      "status": "processing",
-      "parameters": {
-        "image_url": "www.images.com/image2.png"
-      }
-    },
-    {
-      "object": "Datum",
-      "id": "3",
-      "status": "processing",
-      "parameters": {
-        "image_url": "www.images.com/image3.png"
-      }
-    }
-  ],
-  "webhooks": [
-    {
+    ]
+  },
+  "webhooks": {
+    "object": "List",
+    "url": "api/batch/1/webhooks",
+    "has_more": false,
+    "page": 1,
+    "data": {
       "object": "Webhook",
       "id": "1",
       "destination": "https://your.service.com"
     }
-  ],
+  },
+  "completed": "false",
+  "status": "processing",
   "created": "2015-05-22T14:56:29.000Z",
   "updated": "2015-05-22T14:56:28.000Z"
 }

@@ -84,10 +84,6 @@ Cuba.define do
         res.write read_fixture('batches', 'bad_params')
       end
     end
-
-    on 'api/batches/:id/debits' do |id|
-      res.write read_fixture('batches', 'pay')
-    end
   end
 
   on delete do
